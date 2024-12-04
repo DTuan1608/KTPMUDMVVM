@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="KTPMUDMVVM.UserControlDT.ControlBarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KTPMUDMVVM.UserControlDT"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="800" Background="LightGreen"
+             
+             Name ="ucControlBar">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucControlBar}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <TextBlock
+            Width="600"
+            Text="{Binding Tag, ElementName=ucControlBar}"
+            FontSize="20"
+            FontWeight="Bold"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="15 0 0 0">
+        </TextBlock>
+        <Border Height="30" Width="30" HorizontalAlignment="Right">
+            <Button
+                x:Name="Close"
+                BorderBrush="LightGreen"
+                Background="LightGreen"
+                FontWeight="Bold"
+                FontSize="20"  
+                Command="{Binding CloseWindowCommand}"
+                CommandParameter="{Binding ElementName=ucControlBar}">
+                <Image Height="15" Width="15" Source="E:\AnhKTPMUD\Close1.png" RenderTransformOrigin="0.5,0.525"/>
+            </Button>
+        </Border>
+        <Border  Margin="0 0 34 0" Height="30" Width="30" HorizontalAlignment="Right">
+            <Button
+                x:Name="Maximize"
+                BorderBrush="LightGreen"
+                Background="LightGreen"
+                FontWeight="Bold"
+                FontSize="20"
+                HorizontalAlignment="Stretch"
+                Command="{Binding MaximizeWindowCommand}"
+                CommandParameter="{Binding ElementName=ucControlBar}"> 
+                <Image Height="15" Width="16" Source="E:\AnhKTPMUD\Ảnh1.png"/>
+            </Button>
+        </Border>
+        <Border BorderBrush="White" Margin="0 0 68 0" Height="30" Width="30" HorizontalAlignment="Right">
+            <Button
+                x:Name="Minimize"
+                BorderBrush="LightGreen"
+                Background="LightGreen"
+                FontWeight="Bold"
+                FontSize="20"
+                HorizontalAlignment="Stretch" 
+                Command="{Binding MinimizeWindowCommand}"
+                CommandParameter="{Binding ElementName=ucControlBar}">
+                <Image Height="15" Width="15" Source="E:\AnhKTPMUD\An.png"/>
+            </Button>
+        </Border>
+    </Grid>
+</UserControl>

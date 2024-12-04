@@ -1,0 +1,107 @@
+﻿<Window x:Class="KTPMUDMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KTPMUDMVVM"
+        xmlns:ViewModel ="clr-namespace:KTPMUDMVVM.ViewModel"
+        xmlns:uc="clr-namespace:KTPMUDMVVM.UserControlDT"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        DataContext="{StaticResource MainVM}"
+        WindowStartupLocation="CenterScreen"
+        Name="mainWindow"
+        Title="Phần mềm quản lý chăn nuôi" Height="500" Width="900" 
+        WindowStyle="None" ResizeMode="NoResize">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Grid.Row="1" >
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Aqua"></Setter>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="Width" Value="200"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Content="Trang chủ" 
+                            Command="{Binding ChangeViewCommand}" 
+                            CommandParameter="HomePage" 
+                            Margin="0 20 0 0"/>
+                    <Button Content="Sản phẩm xử lý chất thải" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="XuLyChatThai" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Cơ sở khảo nghiệm" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="CoSoKhaoNghiem" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Cơ sở Chăn Nuôi" 
+                            Command="{Binding ChangeViewCommand}" 
+                            CommandParameter="CoSoChanNuoi" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Cơ sở Chế Biến" 
+                            Command="{Binding ChangeViewCommand}" 
+                            CommandParameter="CoSoCheBien" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Quản lý tạm giữ tiêu hủy" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="TamGiuTieuHuy" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Đại lý bán thuốc" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="DaiLyBanThuoc" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Cơ sở giết mổ" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="CoSoGietMo" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Khu vực tiêu hủy" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="KhuVucTieuHuy" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Quản lý tổ chức và vùng" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="ToChucVaVung" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Quản lý động vật" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="QuanLyDongVat" 
+                            Margin="0 5 0 0"/>
+                    <Button Content="Quản lý dịch" 
+                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="QuanLyDich" 
+                            Margin="0 5 0 0"/>
+                </StackPanel>
+            </Grid>
+            <ContentControl Grid.Column="1" Content="{Binding CurrentView}"/>
+        </Grid>
+    </Grid>
+</Window>
