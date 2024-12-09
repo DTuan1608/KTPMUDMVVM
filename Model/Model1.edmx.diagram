@@ -23,7 +23,7 @@
         <EntityTypeShape EntityType="DataModel.QuanLyDaiLyThuoc" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.QuanLyTamGiuTieuHuy" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.SP_XL_chat_thai" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.sysdiagram" Width="1.5" PointX="8.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.sysdiagram" Width="1.5" PointX="14.625" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.Thuoc" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.Tinh" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.ToChucCaNhanChanNuoi" Width="1.5" PointX="3.75" PointY="27.25" IsExpanded="true" />
