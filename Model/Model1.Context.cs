@@ -25,29 +25,29 @@ namespace KTPMUDMVVM.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Chuc_vu> Chuc_vu { get; set; }
-        public virtual DbSet<CoQuanCapChungNhan> CoQuanCapChungNhans { get; set; }
+        public virtual DbSet<ChiCucThuY> ChiCucThuYs { get; set; }
+        public virtual DbSet<CoSoCapGCN> CoSoCapGCNs { get; set; }
         public virtual DbSet<CoSoChanNuoi> CoSoChanNuois { get; set; }
-        public virtual DbSet<CoSoKhaoNghiemSPXLCT> CoSoKhaoNghiemSPXLCTs { get; set; }
-        public virtual DbSet<CoSoSanXuatSPXLCT> CoSoSanXuatSPXLCTs { get; set; }
-        public virtual DbSet<DaiLyThuoc> DaiLyThuocs { get; set; }
-        public virtual DbSet<DichBenh> DichBenhs { get; set; }
+        public virtual DbSet<CoSoCheBien> CoSoCheBiens { get; set; }
+        public virtual DbSet<CoSoGietMo> CoSoGietMoes { get; set; }
+        public virtual DbSet<CoSoKhaoNghiemSP> CoSoKhaoNghiemSPs { get; set; }
+        public virtual DbSet<CoSoSanXuatSP> CoSoSanXuatSPs { get; set; }
+        public virtual DbSet<DaiLyBanThuoc> DaiLyBanThuocs { get; set; }
+        public virtual DbSet<Dichbenh> Dichbenhs { get; set; }
         public virtual DbSet<DieuKienChanNuoi> DieuKienChanNuois { get; set; }
-        public virtual DbSet<DongVatChanNuoi> DongVatChanNuois { get; set; }
+        public virtual DbSet<DongVat> DongVats { get; set; }
         public virtual DbSet<GiayChungNhan> GiayChungNhans { get; set; }
         public virtual DbSet<Huyen> Huyens { get; set; }
         public virtual DbSet<KhuTamGiu> KhuTamGius { get; set; }
         public virtual DbSet<LoaiCoSo> LoaiCoSoes { get; set; }
         public virtual DbSet<Nguoi_dung> Nguoi_dung { get; set; }
-        public virtual DbSet<QuanLyChiCucThuY> QuanLyChiCucThuYs { get; set; }
-        public virtual DbSet<QuanLyDaiLyThuoc> QuanLyDaiLyThuocs { get; set; }
-        public virtual DbSet<QuanLyTamGiuTieuHuy> QuanLyTamGiuTieuHuys { get; set; }
-        public virtual DbSet<SP_XL_chat_thai> SP_XL_chat_thai { get; set; }
+        public virtual DbSet<SanPhamXuLyChatThai> SanPhamXuLyChatThais { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ThongKeChanNuoi> ThongKeChanNuois { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
         public virtual DbSet<Tinh> Tinhs { get; set; }
-        public virtual DbSet<ToChucCaNhanChanNuoi> ToChucCaNhanChanNuois { get; set; }
-        public virtual DbSet<Vung> Vungs { get; set; }
+        public virtual DbSet<ToChucCaNhan> ToChucCaNhans { get; set; }
+        public virtual DbSet<VungAnToan> VungAnToans { get; set; }
         public virtual DbSet<Xa> Xas { get; set; }
     }
 }

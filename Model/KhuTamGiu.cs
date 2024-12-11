@@ -14,17 +14,14 @@ namespace KTPMUDMVVM.Model
     
     public partial class KhuTamGiu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhuTamGiu()
-        {
-            this.QuanLyTamGiuTieuHuys = new HashSet<QuanLyTamGiuTieuHuy>();
-        }
-    
         public string MaKhu { get; set; }
         public string TenKhu { get; set; }
-        public string DiaChiKhu { get; set; }
+        public string MaDV { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public string MaXa { get; set; }
+        public Nullable<System.DateTime> NgayTG { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLyTamGiuTieuHuy> QuanLyTamGiuTieuHuys { get; set; }
+        public virtual DongVat DongVat { get; set; }
+        public virtual Xa Xa { get; set; }
     }
 }

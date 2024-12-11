@@ -14,21 +14,24 @@ namespace KTPMUDMVVM.Model
     
     public partial class CoSoChanNuoi
     {
-        public string MaCoSoCN { get; set; }
-        public string TenCSCN { get; set; }
-        public string MaVung { get; set; }
-        public string MaTCCN { get; set; }
-        public string DiaChiCSCN { get; set; }
-        public string MaDieuKien { get; set; }
+        public string MaCN { get; set; }
+        public string TenCN { get; set; }
         public string MaDV { get; set; }
-        public string MaDichBenh { get; set; }
+        public Nullable<int> SoLuongDV { get; set; }
+        public string SoDT { get; set; }
+        public string MaXa { get; set; }
+        public string MaTCCN { get; set; }
+        public string MaDK { get; set; }
+        public string MaDB { get; set; }
+        public string MaGCN { get; set; }
         public string MaLCS { get; set; }
     
-        public virtual DieuKienChanNuoi DieuKienChanNuoi { get; set; }
-        public virtual DichBenh DichBenh { get; set; }
+        public virtual GiayChungNhan GiayChungNhan { get; set; }
         public virtual LoaiCoSo LoaiCoSo { get; set; }
-        public virtual ToChucCaNhanChanNuoi ToChucCaNhanChanNuoi { get; set; }
-        public virtual Vung Vung { get; set; }
-        public virtual DongVatChanNuoi DongVatChanNuoi { get; set; }
+        public virtual ToChucCaNhan ToChucCaNhan { get; set; }
+        public virtual Dichbenh Dichbenh { get; set; }
+        public virtual DieuKienChanNuoi DieuKienChanNuoi { get; set; }
+        public virtual DongVat DongVat { get; set; }
+        public virtual Xa Xa { get; set; }
     }
 }

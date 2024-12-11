@@ -18,12 +18,15 @@ namespace KTPMUDMVVM.Model
         public DieuKienChanNuoi()
         {
             this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
+            this.CoSoCheBiens = new HashSet<CoSoCheBien>();
         }
     
-        public string MaDieuKien { get; set; }
-        public string MoTa { get; set; }
+        public string MaDK { get; set; }
+        public string MotaDK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
     }
 }

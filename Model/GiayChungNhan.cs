@@ -14,12 +14,22 @@ namespace KTPMUDMVVM.Model
     
     public partial class GiayChungNhan
     {
-        public string MaChungNhan { get; set; }
-        public string TenChungNhan { get; set; }
-        public string MaCoSoCN { get; set; }
-        public Nullable<System.DateTime> NgayCap { get; set; }
-        public string MaCoQuanCap { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GiayChungNhan()
+        {
+            this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
+            this.CoSoCheBiens = new HashSet<CoSoCheBien>();
+        }
     
-        public virtual CoQuanCapChungNhan CoQuanCapChungNhan { get; set; }
+        public string MaGCN { get; set; }
+        public string TenGCN { get; set; }
+        public string MotaGCN { get; set; }
+        public string MaCSGCN { get; set; }
+    
+        public virtual CoSoCapGCN CoSoCapGCN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
     }
 }

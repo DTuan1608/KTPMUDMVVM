@@ -4,9 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KTPMUDMVVM"
+             xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             d:DesignHeight="460" d:DesignWidth="700" Background="GreenYellow">
+             d:DataContext="{d:DesignInstance Type=viewmodel:CSCNViewmodel}" 
+             Background="GreenYellow"
+             >
+
+    <UserControl.DataContext>
+        <viewmodel:CSCNViewmodel />
+    </UserControl.DataContext>
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Opacity" Value="0.7"/>
@@ -24,7 +30,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    
+ 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -94,13 +100,13 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView Background="LightBlue" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+            <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenCoSo}"></GridViewColumn>
-                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
-                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDienThoai}"></GridViewColumn>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding CoSoChanNuoi1.MaCN}"></GridViewColumn>
+                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding  CoSoChanNuoi1.TenCN}"></GridViewColumn>
+                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding CoSoChanNuoi1.MaXa}"></GridViewColumn>
+                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding  CoSoChanNuoi1.SoDT}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
