@@ -12,23 +12,26 @@ namespace KTPMUDMVVM.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DichBenh
+    public partial class Dichbenh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DichBenh()
+        public Dichbenh()
         {
             this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
-            this.QuanLyTamGiuTieuHuys = new HashSet<QuanLyTamGiuTieuHuy>();
+            this.CoSoCheBiens = new HashSet<CoSoCheBien>();
+            this.VungAnToans = new HashSet<VungAnToan>();
         }
     
-        public string MaDichBenh { get; set; }
-        public string TenDichBenh { get; set; }
-        public Nullable<int> MucDoNguyHiem { get; set; }
-        public string CachXuLy { get; set; }
+        public string MaDB { get; set; }
+        public string TenDB { get; set; }
+        public string CachXyLy { get; set; }
+        public Nullable<int> MucNguyHiem { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLyTamGiuTieuHuy> QuanLyTamGiuTieuHuys { get; set; }
+        public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VungAnToan> VungAnToans { get; set; }
     }
 }

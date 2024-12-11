@@ -14,19 +14,12 @@ namespace KTPMUDMVVM.Model
     
     public partial class Thuoc
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Thuoc()
-        {
-            this.QuanLyDaiLyThuocs = new HashSet<QuanLyDaiLyThuoc>();
-        }
-    
-        public string MaThuoc { get; set; }
-        public string TenThuoc { get; set; }
-        public Nullable<System.DateTime> HanSuDung { get; set; }
+        public string MaT { get; set; }
+        public string TenT { get; set; }
         public string MaDV { get; set; }
+        public Nullable<System.DateTime> NgaySX { get; set; }
+        public Nullable<System.DateTime> HanSD { get; set; }
     
-        public virtual DongVatChanNuoi DongVatChanNuoi { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLyDaiLyThuoc> QuanLyDaiLyThuocs { get; set; }
+        public virtual DongVat DongVat { get; set; }
     }
 }

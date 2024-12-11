@@ -17,28 +17,34 @@ namespace KTPMUDMVVM.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiCoSo()
         {
-            this.CoQuanCapChungNhans = new HashSet<CoQuanCapChungNhan>();
+            this.ChiCucThuYs = new HashSet<ChiCucThuY>();
+            this.CoSoCapGCNs = new HashSet<CoSoCapGCN>();
             this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
-            this.CoSoKhaoNghiemSPXLCTs = new HashSet<CoSoKhaoNghiemSPXLCT>();
-            this.CoSoSanXuatSPXLCTs = new HashSet<CoSoSanXuatSPXLCT>();
-            this.DaiLyThuocs = new HashSet<DaiLyThuoc>();
-            this.QuanLyChiCucThuYs = new HashSet<QuanLyChiCucThuY>();
+            this.CoSoCheBiens = new HashSet<CoSoCheBien>();
+            this.CoSoGietMoes = new HashSet<CoSoGietMo>();
+            this.CoSoKhaoNghiemSPs = new HashSet<CoSoKhaoNghiemSP>();
+            this.CoSoSanXuatSPs = new HashSet<CoSoSanXuatSP>();
+            this.DaiLyBanThuocs = new HashSet<DaiLyBanThuoc>();
         }
     
         public string MaLCS { get; set; }
         public string TenLCS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoQuanCapChungNhan> CoQuanCapChungNhans { get; set; }
+        public virtual ICollection<ChiCucThuY> ChiCucThuYs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoSoCapGCN> CoSoCapGCNs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoKhaoNghiemSPXLCT> CoSoKhaoNghiemSPXLCTs { get; set; }
+        public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoSanXuatSPXLCT> CoSoSanXuatSPXLCTs { get; set; }
+        public virtual ICollection<CoSoGietMo> CoSoGietMoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DaiLyThuoc> DaiLyThuocs { get; set; }
+        public virtual ICollection<CoSoKhaoNghiemSP> CoSoKhaoNghiemSPs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLyChiCucThuY> QuanLyChiCucThuYs { get; set; }
+        public virtual ICollection<CoSoSanXuatSP> CoSoSanXuatSPs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DaiLyBanThuoc> DaiLyBanThuocs { get; set; }
     }
 }

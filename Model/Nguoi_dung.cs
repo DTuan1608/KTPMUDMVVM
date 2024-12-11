@@ -14,18 +14,12 @@ namespace KTPMUDMVVM.Model
     
     public partial class Nguoi_dung
     {
-        public string IdUser { get; set; }
-        public string UserName { get; set; }
-        public string Passwords { get; set; }
-        public string DisplayName { get; set; }
-        public string IdRole { get; set; }
-        public string ProvinceId { get; set; }
-        public string DistrictId { get; set; }
-        public string WardId { get; set; }
+        public string MaND { get; set; }
+        public string TenDN { get; set; }
+        public string MatKhau { get; set; }
+        public string TenHienThi { get; set; }
+        public string MaXa { get; set; }
     
-        public virtual Chuc_vu Chuc_vu { get; set; }
-        public virtual Huyen Huyen { get; set; }
-        public virtual Tinh Tinh { get; set; }
         public virtual Xa Xa { get; set; }
     }
 }

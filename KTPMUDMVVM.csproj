@@ -70,31 +70,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Chuc_vu.cs">
+    <Compile Include="Model\ChiCucThuY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CoQuanCapChungNhan.cs">
+    <Compile Include="Model\CoSoCapGCN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CoSoChanNuoi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CoSoKhaoNghiemSPXLCT.cs">
+    <Compile Include="Model\CoSoCheBien.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CoSoSanXuatSPXLCT.cs">
+    <Compile Include="Model\CoSoGietMo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DaiLyThuoc.cs">
+    <Compile Include="Model\CoSoKhaoNghiemSP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DichBenh.cs">
+    <Compile Include="Model\CoSoSanXuatSP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CSCBmodel.cs" />
+    <Compile Include="Model\CSCNmodel.cs" />
+    <Compile Include="Model\DaiLyBanThuoc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataProvide.cs" />
+    <Compile Include="Model\Dichbenh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DieuKienChanNuoi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DongVatChanNuoi.cs">
+    <Compile Include="Model\DongVat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GiayChungNhan.cs">
@@ -128,19 +137,13 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PageMode.cs" />
-    <Compile Include="Model\QuanLyChiCucThuY.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuanLyDaiLyThuoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuanLyTamGiuTieuHuy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SP_XL_chat_thai.cs">
+    <Compile Include="Model\SanPhamXuLyChatThai.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ThongKeChanNuoi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Thuoc.cs">
@@ -149,16 +152,21 @@
     <Compile Include="Model\Tinh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ToChucCaNhanChanNuoi.cs">
+    <Compile Include="Model\ToChucCaNhan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Vung.cs">
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Model\VungAnToan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Xa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CSCBViewModel.cs" />
+    <Compile Include="ViewModel\CSCNviewmodel.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\UnitViewModel.cs" />
     <Compile Include="Views\CoSoChanNuoi.xaml.cs">
       <DependentUpon>CoSoChanNuoi.xaml</DependentUpon>
     </Compile>
@@ -200,6 +208,9 @@
     </Compile>
     <Compile Include="Views\ToChucVaVung.xaml.cs">
       <DependentUpon>ToChucVaVung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnitWindow.xaml.cs">
+      <DependentUpon>UnitWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\XuLyChatThai.xaml.cs">
       <DependentUpon>XuLyChatThai.xaml</DependentUpon>
@@ -272,6 +283,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UnitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\XuLyChatThai.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -312,19 +327,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

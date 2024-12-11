@@ -4,55 +4,67 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cde6ec6ba7e9487dbb186a7a7a9a9863" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="DataModel.Chuc_vu" Width="1.5" PointX="12.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.CoQuanCapChungNhan" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.CoSoChanNuoi" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.CoSoKhaoNghiemSPXLCT" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.CoSoSanXuatSPXLCT" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.DaiLyThuoc" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.DichBenh" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.DieuKienChanNuoi" Width="1.5" PointX="3.75" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.DongVatChanNuoi" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.GiayChungNhan" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Huyen" Width="1.5" PointX="10" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.KhuTamGiu" Width="1.5" PointX="3.75" PointY="36.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.LoaiCoSo" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Nguoi_dung" Width="1.5" PointX="14.5" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.QuanLyChiCucThuY" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.QuanLyDaiLyThuoc" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.QuanLyTamGiuTieuHuy" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.SP_XL_chat_thai" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.sysdiagram" Width="1.5" PointX="14.625" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Thuoc" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Tinh" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.ToChucCaNhanChanNuoi" Width="1.5" PointX="3.75" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Vung" Width="1.5" PointX="3.75" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataModel.Xa" Width="1.5" PointX="12.25" PointY="8.875" IsExpanded="true" />
-        <AssociationConnector Association="DataModel.FK__Nguoi_dun__IdRol__25518C17" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoQuanCap__MaLCS__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__GiayChung__MaCoQ__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaDie__37703C52" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaLCS__32AB8735" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaLCS__339FAB6E" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaTCC__367C1819" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaVun__3587F3E0" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoChanNu__MaDV__3493CFA7" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoKhaoN__MaLCS__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__CoSoSanXu__MaLCS__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__DaiLyThuo__MaLCS__72C60C4A" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyDai__MaDai__1332DBDC" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyTam__MaDic__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Thuoc__MaDV__0E6E26BF" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Huyen__ProvinceI__00200768" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Nguoi_dun__Distr__2739D489" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Xa__DistrictId__02FC7413" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyTam__MaKhu__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyChi__MaLCS__75A278F5" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Nguoi_dun__Provi__2645B050" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__Nguoi_dun__WardI__282DF8C2" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyChi__MaVun__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="DataModel.FK__QuanLyDai__MaThu__14270015" ManuallyRouted="false" />
+      <Diagram DiagramId="fec620dd2aa5461789b64cb63e13f6f2" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="DataModel.ChiCucThuY" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoCapGCN" Width="1.5" PointX="10.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoChanNuoi" Width="1.5" PointX="16" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoCheBien" Width="1.5" PointX="19" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoGietMo" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoKhaoNghiemSP" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.CoSoSanXuatSP" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DaiLyBanThuoc" Width="1.5" PointX="10.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Dichbenh" Width="1.5" PointX="13.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DieuKienChanNuoi" Width="1.5" PointX="13.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.DongVat" Width="1.5" PointX="13.75" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.GiayChungNhan" Width="1.5" PointX="12.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Huyen" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.KhuTamGiu" Width="1.5" PointX="13.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.LoaiCoSo" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Nguoi_dung" Width="1.5" PointX="7.5" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.SanPhamXuLyChatThai" Width="1.5" PointX="15.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ThongKeChanNuoi" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Thuoc" Width="1.5" PointX="16" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Tinh" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.ToChucCaNhan" Width="1.5" PointX="13.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.VungAnToan" Width="1.5" PointX="16" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Xa" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="DataModel.FK__ChiCucThu__MaLCS__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__ChiCucThuY__MaXa__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCapGC__MaLCS__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCapGC__MaLCS__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__GiayChung__MaCSG__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaGCN__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaLCS__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanN__MaTCC__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanNu__MaDB__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanNu__MaDK__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanNu__MaDV__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoChanNu__MaXa__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBi__MaGCN__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBi__MaLCS__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBi__MaTCC__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBie__MaDB__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBie__MaDK__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBie__MaDV__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoCheBie__MaXa__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoGietMo__MaXa__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoGietMo__MaXa__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoKhaoN__MaLCS__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoKhaoN__MaLCS__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__SanPhamXuL__MaKN__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoSanXu__MaLCS__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__CoSoSanXu__MaLCS__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__SanPhamXuL__MaKN__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__DaiLyBanT__MaLCS__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__DaiLyBanTh__MaXa__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__VungAnToan__MaDB__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__KhuTamGiu__NgayT__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__Thuoc__HanSD__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__Huyen__MaTinh__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__Xa__MaHuyen__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__KhuTamGiu__MaXa__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK__Nguoi_dung__MaXa__3F466844" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

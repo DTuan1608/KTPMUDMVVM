@@ -18,15 +18,12 @@ namespace KTPMUDMVVM.Model
         public Tinh()
         {
             this.Huyens = new HashSet<Huyen>();
-            this.Nguoi_dung = new HashSet<Nguoi_dung>();
         }
     
-        public string ProvinceId { get; set; }
+        public string MaTinh { get; set; }
         public string TenTinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Huyen> Huyens { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Nguoi_dung> Nguoi_dung { get; set; }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using KTPMUDMVVM.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,9 +8,9 @@ namespace KTPMUDMVVM.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public bool isLoaded = false;
+        public bool IsLoaded { get; private set; } = false;
         public ICommand LoadedWindowCommand { get; set; }
-        public ICommand CoSoChanNuoiCommand { get; set; }
+        public ICommand ChangeViewCommand { get; set; }
 
         private UserControl _currentView;
         public UserControl CurrentView
@@ -22,32 +18,53 @@ namespace KTPMUDMVVM.ViewModel
             get => _currentView;
             set
             {
-                _currentView = value;
-                OnPropertyChangedEventHandler(nameof(CurrentView));
+                if (_currentView != value)
+                {
+                    _currentView = value;
+                    OnPropertyChangedEventHandler(nameof(CurrentView));
+                }
             }
         }
 
-        private ICommand _changeViewCommand;
-        public ICommand ChangeViewCommand { get; }
-
-        public MainViewModel() {
-
-            ChangeViewCommand = new RelayCommand<string>(
-                (p) => true, // CanExecute luôn trả về true
-                (p) => ChangeView(p) // Logic thay đổi trang
-            );
+        public MainViewModel()
+        {
+            // Initialize default view
             CurrentView = new HomePage();
 
-            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                isLoaded = true;
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-            });
+            // Command to handle window loaded event
+            LoadedWindowCommand = new RelayCommand<Window>(
+                canExecute: (p) => true,
+                execute: (p) =>
+                {
+                    IsLoaded = true;
+                    if (p == null) return;
+
+                    // Hide main window and show login window
+                    p.Hide();
+                    var loginWindow = new LoginWindow();
+                    loginWindow.ShowDialog();
+
+                    if (loginWindow.DataContext is LoginViewModel loginVM && loginVM.Islogin)
+                    {
+                        // Show main window if login is successful
+                        p.Show();
+                    }
+                    else
+                    {
+                        // Close application if login fails
+                        p.Close();
+                    }
+                });
+
+            // Command to change views
+            ChangeViewCommand = new RelayCommand<string>(
+                canExecute: (p) => !string.IsNullOrEmpty(p), // Ensure view name is not null or empty
+                execute: (p) => ChangeView(p));
         }
 
         private void ChangeView(string viewName)
         {
+            // Switch to the corresponding view based on the view name
             switch (viewName)
             {
                 case "HomePage":
@@ -87,6 +104,7 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new QuanLyDich();
                     break;
                 default:
+                    // Default to current view if viewName does not match
                     break;
             }
         }

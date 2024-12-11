@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KTPMUDMVVM.Views"
+             xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             d:DesignHeight="460" d:DesignWidth="700" Background="BlanchedAlmond">
+             d:DataContext="{d:DesignInstance Type=viewmodel:CSCBViewmodel}" 
+             Background="BlanchedAlmond">
+    <UserControl.DataContext>
+        <viewmodel:CSCBViewmodel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -74,13 +78,13 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView Background="LightBlue" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+            <ListView Background="LightBlue" ItemsSource="{Binding CSCBlist}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenCoSo}"></GridViewColumn>
-                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
-                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDienThoai}"></GridViewColumn>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding CoSoCheBien.MaCB}"></GridViewColumn>
+                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding CoSoCheBien.TenCB}"></GridViewColumn>
+                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding CoSoCheBien.MaXa}"></GridViewColumn>
+                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding CoSoCheBien.SoDT}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
