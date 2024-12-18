@@ -52,11 +52,11 @@
                 <StackPanel>
                     <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.MaCN,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                     </Border>
                     <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.TenCN,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                     </Border>
                 </StackPanel>
             </Grid>
@@ -64,11 +64,11 @@
                 <StackPanel>
                     <TextBlock Text="Địa chỉ:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.MaXa,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                     </Border>
                     <TextBlock Text="Số điện thoại:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.SoDT,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                     </Border>
                 </StackPanel>
             </Grid>
@@ -100,7 +100,8 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}" >
+            <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}"  SelectedItem="{Binding SelectedItem1, Mode=OneWayToSource}">
+                >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding CoSoChanNuoi1.MaCN}"></GridViewColumn>

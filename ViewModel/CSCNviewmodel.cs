@@ -17,10 +17,23 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-
+        private CSCNmodel _SelectedItem1;
+        public CSCNmodel SelectedItem1
+        {
+            get => _SelectedItem1;
+            set
+            {
+                if (_SelectedItem1 != value)
+                {
+                    _SelectedItem1 = value;
+                    OnPropertyChangedEventHandler();
+                }
+            }
+        }
         public CSCNViewmodel()
         {
             LoadData();
+            OnPropertyChangedEventHandler();
         }
 
         private void LoadData()
@@ -29,7 +42,7 @@ namespace KTPMUDMVVM.ViewModel
             {
                 new CSCNmodel
                 {
-                    CoSoChanNuoi1 = new CoSoChanNuoi
+                    CoSoChanNuoi = new CoSoChanNuoi
                     {
                         MaCN = "1",
                         TenCN = "Trang Trại A",
@@ -39,7 +52,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 new CSCNmodel
                 {
-                    CoSoChanNuoi1 = new CoSoChanNuoi
+                    CoSoChanNuoi = new CoSoChanNuoi
                     {
                         MaCN = "2",
                         TenCN = "Trang Trại B",
@@ -49,7 +62,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 new CSCNmodel
                 {
-                    CoSoChanNuoi1 = new CoSoChanNuoi
+                    CoSoChanNuoi = new CoSoChanNuoi
                     {
                         MaCN = "3",
                         TenCN = "Trang Trại C",
