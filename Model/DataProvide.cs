@@ -12,7 +12,7 @@ namespace KTPMUDMVVM.Model
         public static DataProvide Ins { get { if (_ins == null) _ins = new DataProvide(); return _ins; }
             set { _ins = value; } }
         public DataEntities DB { get; set; }
-
+         
         private DataProvide()
         {
             DB = new DataEntities();

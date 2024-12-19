@@ -8,6 +8,6 @@ namespace KTPMUDMVVM.Model
 {
     public class CSCNmodel
     {
-        public CoSoChanNuoi CoSoChanNuoi1 { get; set; }
+        public CoSoChanNuoi CoSoChanNuoi { get; set; }
     }
 }

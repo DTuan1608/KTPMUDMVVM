@@ -155,7 +155,6 @@
     <Compile Include="Model\ToChucCaNhan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Unit.cs" />
     <Compile Include="Model\VungAnToan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -166,7 +165,6 @@
     <Compile Include="ViewModel\CSCNviewmodel.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="ViewModel\UnitViewModel.cs" />
     <Compile Include="Views\CoSoChanNuoi.xaml.cs">
       <DependentUpon>CoSoChanNuoi.xaml</DependentUpon>
     </Compile>
@@ -208,9 +206,6 @@
     </Compile>
     <Compile Include="Views\ToChucVaVung.xaml.cs">
       <DependentUpon>ToChucVaVung.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UnitWindow.xaml.cs">
-      <DependentUpon>UnitWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\XuLyChatThai.xaml.cs">
       <DependentUpon>XuLyChatThai.xaml</DependentUpon>
@@ -280,10 +275,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ToChucVaVung.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UnitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

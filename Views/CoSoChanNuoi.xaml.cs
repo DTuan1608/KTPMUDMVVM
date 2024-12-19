@@ -20,9 +20,7 @@ namespace KTPMUDMVVM.Views
     /// </summary>
     public partial class CoSoChanNuoi : UserControl
     {
-        public CoSoChanNuoi()
-        {
-            InitializeComponent();
-        }
+        public CoSoChanNuoi() => InitializeComponent();
+        
     }
 }
