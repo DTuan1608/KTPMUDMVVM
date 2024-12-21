@@ -11,26 +11,8 @@
              >
 
     <UserControl.DataContext>
-        <viewmodel:CSCNViewmodel />
+        <viewmodel:CSCBViewmodel/>
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Opacity" Value="0.7"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Opacity" Value="1"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="Border">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="LightBlue"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
- 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -38,11 +20,10 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Quản lý cơ sở chăn nuôi" 
-                   Background="White"
-                   FontSize="20" FontWeight="Bold"
-                   FontFamily="Time New Roman"
-                   VerticalAlignment="Stretch"/>
+        <TextBlock Text="Quản lý cơ sở chế biến" 
+            FontSize="20" FontWeight="Bold"
+            FontFamily="Time New Roman"
+            VerticalAlignment="Center"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -52,11 +33,13 @@
                 <StackPanel>
                     <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.MaCN,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text="{Binding MaCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
                     </Border>
                     <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.TenCN,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text="{Binding TenCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
                     </Border>
                 </StackPanel>
             </Grid>
@@ -64,50 +47,65 @@
                 <StackPanel>
                     <TextBlock Text="Địa chỉ:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.MaXa,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
                     </Border>
                     <TextBlock Text="Số điện thoại:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                     <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
-                        <TextBox Text ="{Binding SelectedItem1.CoSoChanNuoi.SoDT,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                        <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
+                        </TextBox>
+
                     </Border>
                 </StackPanel>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="80" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content = "Tìm kiếm" Background="Red" 
+                     FontSize="16" VerticalAlignment="Stretch"
+                     HorizontalAlignment="Stretch"
+                     Margin="5" BorderThickness="0"
+                     Command="{Binding SearchCommand}">
+
+                    </Button>
+                </Border>
                 <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
                     <Button Content="Thêm" Background="Red" 
-                            FontSize="16" VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch"
-                            Margin="7" BorderThickness="0">
-                        
+                     FontSize="16" VerticalAlignment="Stretch"
+                     HorizontalAlignment="Stretch"
+                     Margin="5" BorderThickness="0"
+                     Command="{Binding AddCommand}">
+
                     </Button>
                 </Border>
                 <Border Width="70" Height="40" CornerRadius="20" Background="Red"  Margin="5">
                     <Button Content="Sửa" Background="Red" 
-                        FontSize="16" VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch"
-                        Margin="7" BorderThickness="0">
+                 FontSize="16" VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                 Command="{Binding EditCommand}"
+                 Margin="5" BorderThickness="0">
+
                     </Button>
-                   </Border>
-                <Border Width="70" Height="40" CornerRadius="20" Background="Red"  Margin="5">
-                    <Button Content="Xóa" Background="Red" 
-                        FontSize="16" VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch"
-                        Margin="7" BorderThickness="0">
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="LightBlue"  Margin="5">
+                    <Button Content="Xóa"  Background="LightBlue"
+                 FontSize="16" VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                 Command="{Binding DeleteCommand}"
+                 Margin="5" BorderThickness="0">
                     </Button>
                 </Border>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}"  SelectedItem="{Binding SelectedItem1, Mode=OneWayToSource}">
-                >
+            <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding CoSoChanNuoi1.MaCN}"></GridViewColumn>
-                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding  CoSoChanNuoi1.TenCN}"></GridViewColumn>
-                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding CoSoChanNuoi1.MaXa}"></GridViewColumn>
-                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding  CoSoChanNuoi1.SoDT}"></GridViewColumn>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaCN}"></GridViewColumn>
+                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenCN}"></GridViewColumn>
+                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
+                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
