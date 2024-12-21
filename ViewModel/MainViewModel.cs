@@ -46,25 +46,24 @@ namespace KTPMUDMVVM.ViewModel
 
                     if (loginWindow.DataContext is LoginViewModel loginVM && loginVM.Islogin)
                     {
-                        // Show main window if login is successful
+
                         p.Show();
                     }
                     else
                     {
-                        // Close application if login fails
+                     
                         p.Close();
                     }
                 });
 
-            // Command to change views
             ChangeViewCommand = new RelayCommand<string>(
-                canExecute: (p) => !string.IsNullOrEmpty(p), // Ensure view name is not null or empty
+                canExecute: (p) => !string.IsNullOrEmpty(p), 
                 execute: (p) => ChangeView(p));
         }
 
         private void ChangeView(string viewName)
         {
-            // Switch to the corresponding view based on the view name
+            
             switch (viewName)
             {
                 case "HomePage":

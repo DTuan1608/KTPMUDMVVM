@@ -89,6 +89,7 @@
                     <Button Content="Xóa"  Background="LightBlue"
                     FontSize="16" VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
+                    Command="{Binding DeleteCommand}"
                     Margin="5" BorderThickness="0">
                     </Button>
                 </Border>
