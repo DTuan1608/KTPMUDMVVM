@@ -246,6 +246,7 @@ namespace KTPMUDMVVM.ViewModel
         {
             CSCNlist = new ObservableCollection<CoSoChanNuoi>(
                 DataProvide.Ins.DB.CoSoChanNuois);
+            OnPropertyChangedEventHandler();
         }
 
         private void ClearInputFields()

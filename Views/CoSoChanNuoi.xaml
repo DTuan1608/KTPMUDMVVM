@@ -6,13 +6,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=viewmodel:CSCNViewmodel}" 
+             DataContext="{StaticResource CSCNVM}"
              Background="GreenYellow"
              >
-
-    <UserControl.DataContext>
-        <viewmodel:CSCBViewmodel/>
-    </UserControl.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

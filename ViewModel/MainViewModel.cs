@@ -26,6 +26,16 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
+        private object _selectedItem;
+        public object SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChangedEventHandler(nameof(SelectedItem));
+            }
+        }
         public MainViewModel()
         {
             // Initialize default view
@@ -73,7 +83,7 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new CoSoChanNuoi();
                     break;
                 case "CoSoCheBien":
-                    CurrentView = new CoSoCheBien();
+                    CurrentView = new CoSoCheBien(this);
                     break;
                 case "TamGiuTieuHuy":
                     CurrentView = new TamGiuTieuHuy();
@@ -101,6 +111,9 @@ namespace KTPMUDMVVM.ViewModel
                     break;
                 case "QuanLyDich":
                     CurrentView = new QuanLyDich();
+                    break;
+                case "Show":
+                    CurrentView = new Show(SelectedItem); // Chuyển trang chi tiết
                     break;
                 default:
                     // Default to current view if viewName does not match
