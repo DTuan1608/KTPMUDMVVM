@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KTPMUDMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,21 @@ namespace KTPMUDMVVM.Views
     /// </summary>
     public partial class CoSoCheBien : UserControl
     {
-        public CoSoCheBien()
+        private readonly MainViewModel _viewModel;
+
+        public CoSoCheBien(MainViewModel viewModel)
         {
+            
             InitializeComponent();
+        }
+
+        public void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (_viewModel.SelectedItem != null)
+            {
+                // Điều hướng sang trang chi tiết
+                _viewModel.ChangeViewCommand.Execute("Show");
+            }
         }
     }
 }

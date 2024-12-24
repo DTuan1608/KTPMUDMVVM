@@ -91,6 +91,7 @@ namespace KTPMUDMVVM.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
 
+        public ICommand DetailCommand { get; set; }
         public CSCBViewmodel()
         {
             LoadData();
@@ -102,8 +103,7 @@ namespace KTPMUDMVVM.ViewModel
                     {
                         return false;
                     }
-                    return !string.IsNullOrEmpty(MaCB) &&
-                           DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == SelectedItem.MaCB);
+                    return !string.IsNullOrEmpty(MaCB) && DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == SelectedItem.MaCB);
                 },
                 (p) =>
                 {
@@ -220,7 +220,16 @@ namespace KTPMUDMVVM.ViewModel
                         LoadData();
                     }
                 });
+            DetailCommand = new RelayCommand<object>(
+                (p) => 
+                {
+                    return (SelectedItem == null);
+                },
+                (p) =>
+                {
 
+                }
+                    );
             DeleteCommand = new RelayCommand<object>(
                 (p) => {
                     if (SelectedItem == null)
