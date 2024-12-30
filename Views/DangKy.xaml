@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="KTPMUDMVVM.Views.DangKy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KTPMUDMVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="600"
+             Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="AliceBlue"/>
+        <TextBlock Text="DANG KY" 
+        FontSize="30" FontWeight="Bold"
+        FontFamily="Time New Roman"
+        VerticalAlignment="Center"/>
+        <Grid Grid.Row=" 2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="Username:" 
+                FontSize="25" FontWeight="Bold"
+                Margin="20"
+                FontFamily="Time New Roman"
+                VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Height="50" Width="400" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                    <TextBox Text="{Binding TenDN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row=" 1">
+            <TextBlock Text="DANG NHAP" 
+        FontSize="50" FontWeight="Bold"
+        HorizontalAlignment="Center"
+        FontFamily="Time New Roman"
+        VerticalAlignment="Center"/>
+
+         
+        </Grid>
+        <Grid Grid.Row=" 3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="PassWord:" 
+FontSize="25" FontWeight="Bold"
+Margin="20"
+FontFamily="Time New Roman"
+VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Height="50" Width="400" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                    <TextBox Text="{Binding TenDN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row=" 4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="Ten:" 
+FontSize="25" FontWeight="Bold"
+Margin="20"
+FontFamily="Time New Roman"
+VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Height="50" Width="500" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                    <TextBox Text="{Binding TenDN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row=" 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="MaXa:" 
+FontSize="25" FontWeight="Bold"
+Margin="20"
+FontFamily="Time New Roman"
+VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Height="50" Width="470" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                    <TextBox Text="{Binding TenDN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Border Width="150" Height="60" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content = "Dang Ky" Background="Red" 
+        FontSize="30" VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        Margin="5" BorderThickness="0"
+        Command="{Binding SearchCommand}">
+
+                    </Button>
+                </Border>
+                
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Width="150" Height="60" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content = "Huy" Background="Red" 
+        FontSize="30" VerticalAlignment="Stretch"
+        HorizontalAlignment="Stretch"
+        Margin="5" BorderThickness="0"
+        Command="{Binding SearchCommand}">
+
+                    </Button>
+                </Border>
+            </Grid>
+        </Grid>
+
+    </Grid>
+    
+</UserControl>

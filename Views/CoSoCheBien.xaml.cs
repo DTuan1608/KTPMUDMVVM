@@ -21,21 +21,14 @@ namespace KTPMUDMVVM.Views
     /// </summary>
     public partial class CoSoCheBien : UserControl
     {
-        private readonly MainViewModel _viewModel;
+        
 
-        public CoSoCheBien(MainViewModel viewModel)
+        public CoSoCheBien()
         {
             
             InitializeComponent();
         }
 
-        public void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (_viewModel.SelectedItem != null)
-            {
-                // Điều hướng sang trang chi tiết
-                _viewModel.ChangeViewCommand.Execute("Show");
-            }
-        }
+        
     }
 }

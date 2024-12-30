@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace KTPMUDMVVM.Views
 {
     /// <summary>
-    /// Interaction logic for KhuVucTieuHuy.xaml
+    /// Interaction logic for DangKy.xaml
     /// </summary>
-    public partial class KhuVucTieuHuy : UserControl
+    public partial class DangKy : UserControl
     {
-        public KhuVucTieuHuy()
+        public DangKy()
         {
             InitializeComponent();
         }

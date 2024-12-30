@@ -4,6 +4,8 @@
                     >
     <ViewModel:MainViewModel x:Key="MainVM"></ViewModel:MainViewModel>
     <ViewModel:LoginViewModel x:Key="LoginVM"></ViewModel:LoginViewModel>
-    <ViewModel:CSCNViewmodel x:Key="CSCNVM"></ViewModel:CSCNViewmodel>
-    
+    <ViewModel:CSCBViewmodel x:Key="CSCBVM"/>
+    <ViewModel:CSGMViewModel x:Key="CSGMVM"/>
+    <ViewModel:CSKNViewModel x:Key="CSKNVM"/>
+    <ViewModel:DLBTViewModel x:Key="DLBTVM"/>
 </ResourceDictionary>

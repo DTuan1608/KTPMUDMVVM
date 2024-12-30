@@ -139,6 +139,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PageMode.cs" />
+    <Compile Include="Model\QLDBModel.cs" />
     <Compile Include="Model\SanPhamXuLyChatThai.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -165,6 +166,8 @@
     </Compile>
     <Compile Include="ViewModel\CSCBViewModel.cs" />
     <Compile Include="ViewModel\CSCNviewmodel.cs" />
+    <Compile Include="ViewModel\CSGMViewModel.cs" />
+    <Compile Include="ViewModel\DLBTViewModel.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="Views\CoSoChanNuoi.xaml.cs">
@@ -179,8 +182,12 @@
     <Compile Include="Views\CoSoKhaoNghiem.xaml.cs">
       <DependentUpon>CoSoKhaoNghiem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CSKNViewModel.cs" />
     <Compile Include="Views\DaiLyBanThuoc.xaml.cs">
       <DependentUpon>DaiLyBanThuoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DangKy.xaml.cs">
+      <DependentUpon>DangKy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -194,9 +201,6 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="Views\KhuVucTieuHuy.xaml.cs">
-      <DependentUpon>KhuVucTieuHuy.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\QuanLyDich.xaml.cs">
       <DependentUpon>QuanLyDich.xaml</DependentUpon>
     </Compile>
@@ -235,6 +239,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DangKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -260,10 +268,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlDT\ControlBarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\KhuVucTieuHuy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

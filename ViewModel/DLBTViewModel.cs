@@ -8,37 +8,37 @@ using System.Windows.Input;
 
 namespace KTPMUDMVVM.ViewModel
 {
-    public class CSCBViewmodel : BaseViewModel
+    public class DLBTViewModel : BaseViewModel
     {
-        private ObservableCollection<CoSoCheBien> _CSCBlist;
-        public ObservableCollection<CoSoCheBien> CSCBlist
+        private ObservableCollection<DaiLyBanThuoc> _DLBTlist;
+        public ObservableCollection<DaiLyBanThuoc> DLBTlist
         {
-            get => _CSCBlist;
+            get => _DLBTlist;
             set
             {
-                _CSCBlist = value;
+                _DLBTlist = value;
                 OnPropertyChangedEventHandler();
             }
         }
 
-        private string _MaCB;
-        public string MaCB
+        private string _MaDL;
+        public string MaDL
         {
-            get => _MaCB;
+            get => _MaDL;
             set
             {
-                _MaCB = value;
+                _MaDL = value;
                 OnPropertyChangedEventHandler();
             }
         }
 
-        private string _TenCB;
-        public string TenCB
+        private string _TenDL;
+        public string TenDL
         {
-            get => _TenCB;
+            get => _TenDL;
             set
             {
-                _TenCB = value;
+                _TenDL = value;
                 OnPropertyChangedEventHandler();
             }
         }
@@ -65,8 +65,8 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-        private CoSoCheBien _SelectedItem;
-        public CoSoCheBien SelectedItem
+        private DaiLyBanThuoc _SelectedItem;
+        public DaiLyBanThuoc SelectedItem
         {
             get => _SelectedItem;
             set
@@ -77,10 +77,10 @@ namespace KTPMUDMVVM.ViewModel
                     OnPropertyChangedEventHandler();
                     if (SelectedItem != null)
                     {
-                        MaCB = SelectedItem.MaCB;
+                        MaDL = SelectedItem.MaDL;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
-                        TenCB = SelectedItem.TenCB;
+                        TenDL = SelectedItem.TenDL;
                     }
                 }
             }
@@ -92,61 +92,61 @@ namespace KTPMUDMVVM.ViewModel
         public ICommand DeleteCommand { get; set; }
 
         public ICommand DetailCommand { get; set; }
-        
-        public CSCBViewmodel()
+
+        public DLBTViewModel()
         {
             LoadData();
-            
-        AddCommand = new RelayCommand<object>(
-                (p) =>
-                {
-                    if (DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == MaCB) == true)
-                    {
-                        return false;
-                    }
-                    return !string.IsNullOrEmpty(MaCB) && DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == SelectedItem.MaCB);
-                },
-                (p) =>
-                {
-                    if (MaXa == null || MaCB == null || TenCB == null || SoDT == null)
-                    {
-                        MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                    var existingMaXa = DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaXa == MaXa);
-                    if (!existingMaXa)
-                    {
-                        MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        MaXa = null;
-                        return;
-                    }
 
-                    var unit = new CoSoCheBien
+            AddCommand = new RelayCommand<object>(
+                    (p) =>
                     {
-                        MaCB = MaCB,
-                        TenCB = TenCB,
-                        MaXa = MaXa,
-                        SoDT = SoDT
-                    };
+                        if (DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == MaDL) == true)
+                        {
+                            return false;
+                        }
+                        return !string.IsNullOrEmpty(MaDL) && DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == SelectedItem.MaDL);
+                    },
+                    (p) =>
+                    {
+                        if (MaXa == null || MaDL == null || TenDL == null || SoDT == null)
+                        {
+                            MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        var existingMaXa = DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaXa == MaXa);
+                        if (!existingMaXa)
+                        {
+                            MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MaXa = null;
+                            return;
+                        }
 
-                    DataProvide.Ins.DB.CoSoCheBiens.Add(unit);
-                    DataProvide.Ins.DB.SaveChanges();
-                    CSCBlist.Add(unit);
-                    ClearInputFields();
-                });
+                        var unit = new DaiLyBanThuoc
+                        {
+                            MaDL = MaDL,
+                            TenDL = TenDL,
+                            MaXa = MaXa,
+                            SoDT = SoDT
+                        };
+
+                        DataProvide.Ins.DB.DaiLyBanThuocs.Add(unit);
+                        DataProvide.Ins.DB.SaveChanges();
+                        DLBTlist.Add(unit);
+                        ClearInputFields();
+                    });
 
             EditCommand = new RelayCommand<object>(
      (p) =>
      {
 
          return SelectedItem != null &&
-                !string.IsNullOrEmpty(MaCB) &&
-                DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == MaCB);
+                !string.IsNullOrEmpty(MaDL) &&
+                DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == MaDL);
      },
      (p) =>
      {
 
-         var existingMaXa = DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaXa == MaXa);
+         var existingMaXa = DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaXa == MaXa);
          if (!existingMaXa)
          {
              MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -154,12 +154,12 @@ namespace KTPMUDMVVM.ViewModel
              return;
          }
 
-         var unit = DataProvide.Ins.DB.CoSoCheBiens.SingleOrDefault(x => x.MaCB == MaCB);
+         var unit = DataProvide.Ins.DB.DaiLyBanThuocs.SingleOrDefault(x => x.MaDL == MaDL);
          if (unit != null)
          {
 
-             unit.MaCB = MaCB;
-             unit.TenCB = TenCB;
+             unit.MaDL = MaDL;
+             unit.TenDL = TenDL;
              unit.MaXa = MaXa;
              unit.SoDT = SoDT;
 
@@ -167,13 +167,13 @@ namespace KTPMUDMVVM.ViewModel
              DataProvide.Ins.DB.SaveChanges();
 
 
-             SelectedItem.MaCB = MaCB;
-             SelectedItem.TenCB = TenCB;
+             SelectedItem.MaDL = MaDL;
+             SelectedItem.TenDL = TenDL;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
 
 
-             OnPropertyChangedEventHandler(nameof(CSCBlist));
+             OnPropertyChangedEventHandler(nameof(DLBTlist));
              MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
          }
          else
@@ -184,30 +184,30 @@ namespace KTPMUDMVVM.ViewModel
 
 
             SearchCommand = new RelayCommand<object>(
-                (p) => 
+                (p) =>
                 {
-                    return true; 
+                    return true;
                 },
                 (p) =>
                 {
-                    if (MaCB == null || MaXa == null || TenCB == null || SoDT == null )
+                    if (MaDL == null || MaXa == null || TenDL == null || SoDT == null)
                     {
                         LoadData();
                     }
-                    var results = DataProvide.Ins.DB.CoSoCheBiens.Where(x =>
-                   (string.IsNullOrEmpty(MaCB) || x.MaCB.Contains(MaCB)) &&
-                   (string.IsNullOrEmpty(TenCB) || x.TenCB.Contains(TenCB)) &&
+                    var results = DataProvide.Ins.DB.DaiLyBanThuocs.Where(x =>
+                   (string.IsNullOrEmpty(MaDL) || x.MaDL.Contains(MaDL)) &&
+                   (string.IsNullOrEmpty(TenDL) || x.TenDL.Contains(TenDL)) &&
                    (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
                    (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
                     .ToList();
-                    if (results != null) 
-                    { 
-               
+                    if (results != null)
+                    {
 
-                        CSCBlist.Clear();
+
+                        DLBTlist.Clear();
                         foreach (var item in results)
                         {
-                            CSCBlist.Add(item);
+                            DLBTlist.Add(item);
                         }
                     }
                     else
@@ -216,23 +216,23 @@ namespace KTPMUDMVVM.ViewModel
                         LoadData();
                     }
                 });
-            
+
             DeleteCommand = new RelayCommand<object>(
                 (p) => {
                     if (SelectedItem == null)
                     {
                         return false;
                     }
-                    return true; 
+                    return true;
                 },
                 (p) =>
                 {
-                    var unit = DataProvide.Ins.DB.CoSoCheBiens.SingleOrDefault(x => x.MaCB == MaCB);
+                    var unit = DataProvide.Ins.DB.DaiLyBanThuocs.SingleOrDefault(x => x.MaDL == MaDL);
                     if (unit != null)
                     {
-                        DataProvide.Ins.DB.CoSoCheBiens.Remove(unit);
+                        DataProvide.Ins.DB.DaiLyBanThuocs.Remove(unit);
                         DataProvide.Ins.DB.SaveChanges();
-                        CSCBlist.Remove(SelectedItem);
+                        DLBTlist.Remove(SelectedItem);
                         ClearInputFields();
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -241,17 +241,18 @@ namespace KTPMUDMVVM.ViewModel
 
         private void LoadData()
         {
-            CSCBlist = new ObservableCollection<CoSoCheBien>(
-                DataProvide.Ins.DB.CoSoCheBiens);
+            DLBTlist = new ObservableCollection<DaiLyBanThuoc>(
+                DataProvide.Ins.DB.DaiLyBanThuocs);
         }
 
         private void ClearInputFields()
         {
-            MaCB = null;
-            TenCB = null;
+            MaDL = null;
+            TenDL = null;
             MaXa = null;
             SoDT = null;
             SelectedItem = null;
         }
     }
 }
+

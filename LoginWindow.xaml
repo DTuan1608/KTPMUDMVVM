@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"
         xmlns:local="clr-namespace:KTPMUDMVVM"
         xmlns:uc ="clr-namespace:KTPMUDMVVM.UserControlDT"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Name="loginWindow"
+        d:DataContext="{d:DesignInstance Type=viewmodel:LoginViewModel}"
         DataContext="LoginVM"
         Title="Đăng nhập" Height="600" Width="600" 
         WindowStyle="None" ResizeMode="NoResize"
@@ -60,7 +62,7 @@
                        VerticalAlignment="Bottom">
                 </TextBlock>
                 <Border Grid.Row="1" Height="30" Width="300" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White">
-                    <TextBox BorderThickness="0" Margin="5" Name="txtUsername" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <TextBox Text ="{Binding Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="0" Margin="5" Name="txtUsername" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Border>
             </Grid>
             <Grid Grid.Row="1">
@@ -71,11 +73,12 @@
                 <TextBlock Grid.Row="0"
                 Text="Mật khẩu:" 
                 FontSize="18" 
+                
                 Margin="150 0 0 0"
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Bottom"/>
                 <Border Grid.Row="1" Height="30"  Width="300" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White">
-                    <PasswordBox BorderThickness="0" Margin="5" Name="txtPassword" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="250"/>
+                    <TextBox  Text ="{Binding Password,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="0" Margin="5" Name="txtPassword" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 </Border>
             </Grid>
             <Grid Grid.Row="2">
@@ -97,7 +100,7 @@
                          Background="Black"
                          Foreground="White"
                          FontWeight="Bold" 
-                         Command="{Binding LoginComand}"
+                         Command="{Binding LoginCommand}"
                          >     
                     </Button>
                 </Border>
