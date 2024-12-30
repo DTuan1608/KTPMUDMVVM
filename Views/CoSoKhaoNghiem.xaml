@@ -3,10 +3,116 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KTPMUDMVVM.Views"
+             xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="BlanchedAlmond">
+             d:DataContext="{d:DesignInstance Type=viewmodel:CSKNViewModel}"
+             DataContext="{StaticResource CSKNVM}"
+             Background="BlanchedAlmond">
     <Grid>
-        <TextBlock Text="Cơ sở khảo nghiệm" FontSize="29" FontWeight="Black" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Quản lý cơ sở Giet Mo" 
+               FontSize="20" FontWeight="Bold"
+               FontFamily="Time New Roman"
+               VerticalAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                    <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                        <TextBox Text="{Binding MaKN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                    </Border>
+                    <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                    <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                        <TextBox Text="{Binding TenKN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                    </Border>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="Địa chỉ:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                    <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                        <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                    </Border>
+                    <TextBlock Text="Số điện thoại:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                    <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White">
+                        <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
+                        </TextBox>
+
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="80" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content = "Tìm kiếm" Background="Red" 
+                        FontSize="16" VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Margin="5" BorderThickness="0"
+                        Command="{Binding SearchCommand}">
+
+                    </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content="Thêm" Background="Red" 
+                        FontSize="16" VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Margin="5" BorderThickness="0"
+                        Command="{Binding AddCommand}">
+
+                    </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content="Thêm" Background="Red" 
+                     FontSize="16" VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="5" BorderThickness="0"
+                    Command="{Binding AddCommand}">
+
+                    </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content="Thêm" Background="Red" 
+                    FontSize="16" VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="5" BorderThickness="0"
+                    Command="{Binding AddCommand}">
+
+                    </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red"  Margin="5">
+                    <Button Content="Chi tiết" Background="Red"
+                FontSize="16" VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                Margin="5" BorderThickness="0"
+                Command="{Binding ChangedViewCommand}"
+                CommandParameter="Show"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <ListView Background="LightBlue" ItemsSource="{Binding CSKNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaKN}"></GridViewColumn>
+                        <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenKN}"></GridViewColumn>
+                        <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
+                        <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>

@@ -8,37 +8,37 @@ using System.Windows.Input;
 
 namespace KTPMUDMVVM.ViewModel
 {
-    public class CSCBViewmodel : BaseViewModel
+    public class CSGMViewModel : BaseViewModel
     {
-        private ObservableCollection<CoSoCheBien> _CSCBlist;
-        public ObservableCollection<CoSoCheBien> CSCBlist
+        private ObservableCollection<CoSoGietMo> _CSGMlist;
+        public ObservableCollection<CoSoGietMo> CSGMlist
         {
-            get => _CSCBlist;
+            get => _CSGMlist;
             set
             {
-                _CSCBlist = value;
+                _CSGMlist = value;
                 OnPropertyChangedEventHandler();
             }
         }
 
-        private string _MaCB;
-        public string MaCB
+        private string _MaGM;
+        public string MaGM
         {
-            get => _MaCB;
+            get => _MaGM;
             set
             {
-                _MaCB = value;
+                _MaGM = value;
                 OnPropertyChangedEventHandler();
             }
         }
 
-        private string _TenCB;
-        public string TenCB
+        private string _TenGM;
+        public string TenGM
         {
-            get => _TenCB;
+            get => _TenGM;
             set
             {
-                _TenCB = value;
+                _TenGM = value;
                 OnPropertyChangedEventHandler();
             }
         }
@@ -65,8 +65,8 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-        private CoSoCheBien _SelectedItem;
-        public CoSoCheBien SelectedItem
+        private CoSoGietMo _SelectedItem;
+        public CoSoGietMo SelectedItem
         {
             get => _SelectedItem;
             set
@@ -77,10 +77,10 @@ namespace KTPMUDMVVM.ViewModel
                     OnPropertyChangedEventHandler();
                     if (SelectedItem != null)
                     {
-                        MaCB = SelectedItem.MaCB;
+                        MaGM = SelectedItem.MaGM;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
-                        TenCB = SelectedItem.TenCB;
+                        TenGM = SelectedItem.TenGM;
                     }
                 }
             }
@@ -92,61 +92,61 @@ namespace KTPMUDMVVM.ViewModel
         public ICommand DeleteCommand { get; set; }
 
         public ICommand DetailCommand { get; set; }
-        
-        public CSCBViewmodel()
+
+        public CSGMViewModel()
         {
             LoadData();
-            
-        AddCommand = new RelayCommand<object>(
-                (p) =>
-                {
-                    if (DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == MaCB) == true)
-                    {
-                        return false;
-                    }
-                    return !string.IsNullOrEmpty(MaCB) && DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == SelectedItem.MaCB);
-                },
-                (p) =>
-                {
-                    if (MaXa == null || MaCB == null || TenCB == null || SoDT == null)
-                    {
-                        MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                    var existingMaXa = DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaXa == MaXa);
-                    if (!existingMaXa)
-                    {
-                        MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        MaXa = null;
-                        return;
-                    }
 
-                    var unit = new CoSoCheBien
+            AddCommand = new RelayCommand<object>(
+                    (p) =>
                     {
-                        MaCB = MaCB,
-                        TenCB = TenCB,
-                        MaXa = MaXa,
-                        SoDT = SoDT
-                    };
+                        if (DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == MaGM) == true)
+                        {
+                            return false;
+                        }
+                        return !string.IsNullOrEmpty(MaGM) && DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == SelectedItem.MaGM);
+                    },
+                    (p) =>
+                    {
+                        if (MaXa == null || MaGM == null || TenGM == null || SoDT == null)
+                        {
+                            MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        var existingMaXa = DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaXa == MaXa);
+                        if (!existingMaXa)
+                        {
+                            MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MaXa = null;
+                            return;
+                        }
 
-                    DataProvide.Ins.DB.CoSoCheBiens.Add(unit);
-                    DataProvide.Ins.DB.SaveChanges();
-                    CSCBlist.Add(unit);
-                    ClearInputFields();
-                });
+                        var unit = new CoSoGietMo
+                        {
+                            MaGM = MaGM,
+                            TenGM = TenGM,
+                            MaXa = MaXa,
+                            SoDT = SoDT
+                        };
+
+                        DataProvide.Ins.DB.CoSoGietMoes.Add(unit);
+                        DataProvide.Ins.DB.SaveChanges();
+                        CSGMlist.Add(unit);
+                        ClearInputFields();
+                    });
 
             EditCommand = new RelayCommand<object>(
      (p) =>
      {
 
          return SelectedItem != null &&
-                !string.IsNullOrEmpty(MaCB) &&
-                DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == MaCB);
+                !string.IsNullOrEmpty(MaGM) &&
+                DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == MaGM);
      },
      (p) =>
      {
 
-         var existingMaXa = DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaXa == MaXa);
+         var existingMaXa = DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaXa == MaXa);
          if (!existingMaXa)
          {
              MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -154,12 +154,12 @@ namespace KTPMUDMVVM.ViewModel
              return;
          }
 
-         var unit = DataProvide.Ins.DB.CoSoCheBiens.SingleOrDefault(x => x.MaCB == MaCB);
+         var unit = DataProvide.Ins.DB.CoSoGietMoes.SingleOrDefault(x => x.MaGM == MaGM);
          if (unit != null)
          {
 
-             unit.MaCB = MaCB;
-             unit.TenCB = TenCB;
+             unit.MaGM = MaGM;
+             unit.TenGM = TenGM;
              unit.MaXa = MaXa;
              unit.SoDT = SoDT;
 
@@ -167,13 +167,13 @@ namespace KTPMUDMVVM.ViewModel
              DataProvide.Ins.DB.SaveChanges();
 
 
-             SelectedItem.MaCB = MaCB;
-             SelectedItem.TenCB = TenCB;
+             SelectedItem.MaGM = MaGM;
+             SelectedItem.TenGM = TenGM;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
 
 
-             OnPropertyChangedEventHandler(nameof(CSCBlist));
+             OnPropertyChangedEventHandler(nameof(CSGMlist));
              MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
          }
          else
@@ -184,30 +184,30 @@ namespace KTPMUDMVVM.ViewModel
 
 
             SearchCommand = new RelayCommand<object>(
-                (p) => 
+                (p) =>
                 {
-                    return true; 
+                    return true;
                 },
                 (p) =>
                 {
-                    if (MaCB == null || MaXa == null || TenCB == null || SoDT == null )
+                    if (MaGM == null || MaXa == null || TenGM == null || SoDT == null)
                     {
                         LoadData();
                     }
-                    var results = DataProvide.Ins.DB.CoSoCheBiens.Where(x =>
-                   (string.IsNullOrEmpty(MaCB) || x.MaCB.Contains(MaCB)) &&
-                   (string.IsNullOrEmpty(TenCB) || x.TenCB.Contains(TenCB)) &&
+                    var results = DataProvide.Ins.DB.CoSoGietMoes.Where(x =>
+                   (string.IsNullOrEmpty(MaGM) || x.MaGM.Contains(MaGM)) &&
+                   (string.IsNullOrEmpty(TenGM) || x.TenGM.Contains(TenGM)) &&
                    (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
                    (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
                     .ToList();
-                    if (results != null) 
-                    { 
-               
+                    if (results != null)
+                    {
 
-                        CSCBlist.Clear();
+
+                        CSGMlist.Clear();
                         foreach (var item in results)
                         {
-                            CSCBlist.Add(item);
+                            CSGMlist.Add(item);
                         }
                     }
                     else
@@ -216,23 +216,23 @@ namespace KTPMUDMVVM.ViewModel
                         LoadData();
                     }
                 });
-            
+
             DeleteCommand = new RelayCommand<object>(
                 (p) => {
                     if (SelectedItem == null)
                     {
                         return false;
                     }
-                    return true; 
+                    return true;
                 },
                 (p) =>
                 {
-                    var unit = DataProvide.Ins.DB.CoSoCheBiens.SingleOrDefault(x => x.MaCB == MaCB);
+                    var unit = DataProvide.Ins.DB.CoSoGietMoes.SingleOrDefault(x => x.MaGM == MaGM);
                     if (unit != null)
                     {
-                        DataProvide.Ins.DB.CoSoCheBiens.Remove(unit);
+                        DataProvide.Ins.DB.CoSoGietMoes.Remove(unit);
                         DataProvide.Ins.DB.SaveChanges();
-                        CSCBlist.Remove(SelectedItem);
+                        CSGMlist.Remove(SelectedItem);
                         ClearInputFields();
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -241,14 +241,14 @@ namespace KTPMUDMVVM.ViewModel
 
         private void LoadData()
         {
-            CSCBlist = new ObservableCollection<CoSoCheBien>(
-                DataProvide.Ins.DB.CoSoCheBiens);
+            CSGMlist = new ObservableCollection<CoSoGietMo>(
+                DataProvide.Ins.DB.CoSoGietMoes);
         }
 
         private void ClearInputFields()
         {
-            MaCB = null;
-            TenCB = null;
+            MaGM = null;
+            TenGM = null;
             MaXa = null;
             SoDT = null;
             SelectedItem = null;

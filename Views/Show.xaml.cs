@@ -20,10 +20,9 @@ namespace KTPMUDMVVM.Views
     /// </summary>
     public partial class Show : UserControl
     {
-        public Show(object selecteditem)
+        public Show()
         {
             InitializeComponent();
-            DataContext = selecteditem;
         }
     }
 }

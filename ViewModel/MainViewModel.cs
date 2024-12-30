@@ -1,4 +1,4 @@
-﻿using KTPMUDMVVM.Views;
+﻿    using KTPMUDMVVM.Views;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,7 +8,7 @@ namespace KTPMUDMVVM.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public bool IsLoaded { get; private set; } = false;
+        public bool IsLoaded { get; set; } = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand ChangeViewCommand { get; set; }
 
@@ -38,6 +38,13 @@ namespace KTPMUDMVVM.ViewModel
         }
         public MainViewModel()
         {
+            if (!IsLoaded)
+            {
+                IsLoaded = true;
+                LoginWindow p = new LoginWindow();
+                p.ShowDialog();
+                
+            }
             // Initialize default view
             CurrentView = new HomePage();
 
@@ -83,7 +90,7 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new CoSoChanNuoi();
                     break;
                 case "CoSoCheBien":
-                    CurrentView = new CoSoCheBien(this);
+                    CurrentView = new CoSoCheBien();
                     break;
                 case "TamGiuTieuHuy":
                     CurrentView = new TamGiuTieuHuy();
@@ -100,9 +107,7 @@ namespace KTPMUDMVVM.ViewModel
                 case "CoSoGietMo":
                     CurrentView = new CoSoGietMo();
                     break;
-                case "KhuVucTieuHuy":
-                    CurrentView = new KhuVucTieuHuy();
-                    break;
+                    
                 case "ToChucVaVung":
                     CurrentView = new ToChucVaVung();
                     break;
@@ -113,7 +118,7 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new QuanLyDich();
                     break;
                 case "Show":
-                    CurrentView = new Show(SelectedItem); // Chuyển trang chi tiết
+                    CurrentView = new Show(); // Chuyển trang chi tiết
                     break;
                 default:
                     // Default to current view if viewName does not match

@@ -5,11 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=viewmodel:CSCBViewmodel}" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:CSCBViewmodel}"
+             DataContext="{StaticResource CSCBVM}"
              Background="BlanchedAlmond">
-    <UserControl.DataContext>
-        <viewmodel:CSCBViewmodel/>
-    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -76,19 +74,36 @@
                         
                     </Button>
                 </Border>
-                <Border Width="70" Height="40" CornerRadius="20" Background="Red"  Margin="5">
-                    <Button Content="Chi tiet" Background="Red" 
-                    FontSize="16" VerticalAlignment="Stretch"
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content="Thêm" Background="Red" 
+                     FontSize="16" VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
-                    Command="{Binding EditCommand}"
-                    Margin="5" BorderThickness="0">
+                    Margin="5" BorderThickness="0"
+                    Command="{Binding AddCommand}">
 
                     </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red" Margin="5">
+                    <Button Content="Thêm" Background="Red" 
+                    FontSize="16" VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Margin="5" BorderThickness="0"
+                    Command="{Binding AddCommand}">
+
+                    </Button>
+                </Border>
+                <Border Width="70" Height="40" CornerRadius="20" Background="Red"  Margin="5">
+                    <Button Content="Chi tiết" Background="Red"
+                FontSize="16" VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                Margin="5" BorderThickness="0"
+                Command="{Binding ChangedViewCommand}"
+                CommandParameter="Show"/>
                 </Border>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView Background="LightBlue" ItemsSource="{Binding CSCBlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" MouseDoubleClick="ListView_MouseDoubleClick" >
+            <ListView Background="LightBlue" ItemsSource="{Binding CSCBlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaCB}"></GridViewColumn>

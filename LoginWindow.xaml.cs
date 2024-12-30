@@ -23,6 +23,7 @@ namespace KTPMUDMVVM
         public LoginWindow()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel();    
         }
     }
 }
