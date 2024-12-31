@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace KTPMUDMVVM.ViewModel
 {
-    public class CSCNViewmodel : BaseViewModel
+    public class CSCNviewmodel : BaseViewModel
     {
         private ObservableCollection<CoSoChanNuoi> _CSCNlist;
         public ObservableCollection<CoSoChanNuoi> CSCNlist
@@ -90,7 +90,7 @@ namespace KTPMUDMVVM.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
 
-        public CSCNViewmodel()
+        public CSCNviewmodel()
         {
             LoadData();
 

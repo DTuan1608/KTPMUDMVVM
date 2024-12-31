@@ -17,6 +17,7 @@ namespace KTPMUDMVVM.Model
         public string MaND { get; set; }
         public string TenDN { get; set; }
         public string MatKhau { get; set; }
+        public string Chuc_vu { get; set; }
         public string TenHienThi { get; set; }
         public string MaXa { get; set; }
     

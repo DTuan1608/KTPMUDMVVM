@@ -30,14 +30,15 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="250"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
+                <Image Source="Image\MENU.jpg" Stretch="Fill"></Image>
                 <StackPanel Grid.Row="1" >
                     <StackPanel.Resources>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="Aqua"></Setter>
+                            <Setter Property="Background" Value="#a6deb7"></Setter>
                             <Setter Property="FontSize" Value="16"/>
                             <Setter Property="BorderThickness" Value="0"/>
                             <Setter Property="Height" Value="30"/>

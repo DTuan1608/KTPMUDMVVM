@@ -63,12 +63,10 @@ namespace KTPMUDMVVM.ViewModel
 
                     if (loginWindow.DataContext is LoginViewModel loginVM && loginVM.Islogin)
                     {
-
                         p.Show();
                     }
                     else
                     {
-                     
                         p.Close();
                     }
                 });

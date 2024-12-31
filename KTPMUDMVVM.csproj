@@ -334,6 +334,31 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\An.png" />
+    <Resource Include="Image\AnhDD.jpeg" />
+    <Resource Include="Image\close1.png" />
+    <Resource Include="Image\Cài đặt.png" />
+    <Resource Include="Image\Dịch bệnh.png" />
+    <Resource Include="Image\Giết mổ.png" />
+    <Resource Include="Image\Khảo nghiệm.png" />
+    <Resource Include="Image\Khảo sát.png" />
+    <Resource Include="Image\Login.png" />
+    <Resource Include="Image\Logout.png" />
+    <Resource Include="Image\Menu.png" />
+    <Resource Include="Image\Mật khẩu.png" />
+    <Resource Include="Image\Người dùng.png" />
+    <Resource Include="Image\Nền trang login.png" />
+    <Resource Include="Image\Nền user.png" />
+    <Resource Include="Image\Sản xuất.png" />
+    <Resource Include="Image\Thuốc.png" />
+    <Resource Include="Image\Tiêu hủy.png" />
+    <Resource Include="Image\Trang chủ backup.png" />
+    <Resource Include="Image\Trang chủ.png" />
+    <Resource Include="Image\Trang trí.png" />
+    <Resource Include="Image\Tải lại.png" />
+    <Resource Include="Image\Xóa.png" />
+    <Resource Include="Image\Ảnh1.png" />
+    <Resource Include="Image\MENU.jpg" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
