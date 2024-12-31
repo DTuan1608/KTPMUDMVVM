@@ -29,17 +29,17 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Image Grid.Row="0" 
-               Source="E:\AnhKTPMUD\Logo.png" 
+               Source="Image\Nền trang Login.png" 
                Width="200" Height="100" 
                VerticalAlignment="Bottom" 
                HorizontalAlignment="Center" />
             <Border Grid.Row= "1" >
                 <TextBlock
-                Text="Quản lý chăn nuôi"
-                FontSize="28"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                FontWeight="Bold">
+                    Text="Quản lý chăn nuôi"
+                    FontSize="28"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold">
                 </TextBlock>
             </Border>
         </Grid>
@@ -71,56 +71,75 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                Text="Mật khẩu:" 
-                FontSize="18" 
-                
-                Margin="150 0 0 0"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Bottom"/>
+                    Text="Mật khẩu:" 
+                    FontSize="18" 
+                    Margin="150 0 0 0"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom"/>
                 <Border Grid.Row="1" Height="30"  Width="300" CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White">
                     <TextBox  Text ="{Binding Password,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="0" Margin="5" Name="txtPassword" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 </Border>
             </Grid>
             <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Border
-                        Background="Black" Grid.Column="0" CornerRadius="20" Margin ="100 0 0 0" 
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="Green"></Setter>
+                                    <Setter Property="Height" Value="30"/>
+                                    <Setter Property="Width" Value="200"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border x:Name="border"
+                                                        Background="{TemplateBinding Background}"
+                                                        Height="30"
+                                                        Width="200">
+                                                    <ContentPresenter 
+                                                        HorizontalAlignment="Center" 
+                                                        VerticalAlignment="Center"/>        
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Resources>
+                    
+                    <Border CornerRadius="20" Margin ="0 0 50 0"
+                            Background="Black" Grid.Column="0" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center"
+                            Width="100" Height="40">
+                        <Button 
+                            BorderThickness="0" Margin="5" Content="Đăng Nhập"
+                            VerticalAlignment="Stretch"  HorizontalAlignment="Center"
+                            Background="Black" Foreground="White"
+                            FontWeight="Bold"  Command="{Binding LoginCommand}">     
+                        </Button>
+                    </Border>
+
+
+                    <Border
+                        Background="Black" Grid.Column="1" CornerRadius="20" Margin ="50 0 0 0" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Center"
                         Width="100" Height="40">
-                    <Button 
-                         BorderThickness="0"
-                         Margin="5"
-                         Content="Đăng Nhập"
-                         VerticalAlignment="Stretch"
-                         HorizontalAlignment="Stretch"
-                         Background="Black"
-                         Foreground="White"
-                         FontWeight="Bold" 
-                         Command="{Binding LoginCommand}"
-                         >     
-                    </Button>
-                </Border>
-                <Border
-                        Background="Black" Grid.Column="1" CornerRadius="20" Margin ="0 0 100 0" 
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Center"
-                        Width="100" Height="40">
-                    <Button 
-                         BorderThickness="0"
-                         Margin="5"
-                         Content="Đăng ký"
-                         VerticalAlignment="Stretch"
-                         HorizontalAlignment="Stretch"
-                         Background="Black"
-                         Foreground="White"
-                         FontWeight="Bold" 
-                         >
-                    </Button>
-                </Border>
+                        <Button 
+                             BorderThickness="0"
+                             Margin="5"
+                             Content="Đăng ký"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                             Background="Black"
+                             Foreground="White"
+                             FontWeight="Bold" >
+                        </Button>
+                    </Border>
+                </StackPanel>
+                
             </Grid>
         </Grid>
     </Grid>

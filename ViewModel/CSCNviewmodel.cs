@@ -184,11 +184,11 @@ namespace KTPMUDMVVM.ViewModel
             SearchCommand = new RelayCommand<object>(
                 (p) =>
                 {
-                    if (DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN || x.TenCN == TenCN || x.MaXa == MaXa || x.SoDT == SoDT) == null || MaCN != null)
-                    {
+                    //if (DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN || x.TenCN == TenCN || x.MaXa == MaXa || x.SoDT == SoDT) == null || MaCN != null)
+                    //{
 
-                        return false;
-                    }
+                    //    return false;
+                    //}
                     return true;
                 },
                 (p) =>

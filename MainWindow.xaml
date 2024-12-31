@@ -19,7 +19,7 @@
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -35,6 +35,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image Source="Image\MENU.jpg" Stretch="Fill"></Image>
+               
                 <StackPanel Grid.Row="1" >
                     <StackPanel.Resources>
                         <Style TargetType="Button">
@@ -46,8 +47,26 @@
                             <Setter Property="Margin" Value="10"/>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red"></Setter>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="Green"></Setter>
+                                    <Setter Property="Height" Value="30"/>
+                                    <Setter Property="Width" Value="200"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border x:Name="border"
+                                                        Background="{TemplateBinding Background}"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Height="30"
+                                                        Width="200">
+                                                    <ContentPresenter 
+                                                        HorizontalAlignment="Center" 
+                                                        VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -55,7 +74,8 @@
                     <Button Content="Trang chủ" 
                             Command="{Binding ChangeViewCommand}" 
                             CommandParameter="HomePage" 
-                            Margin="0 20 0 0"/>
+                            Margin="0 20 0 0"
+                            />
                     <Button Content="Sản phẩm xử lý chất thải" 
                             Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="XuLyChatThai" 
@@ -100,7 +120,7 @@
                             Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="QuanLyDich" 
                             Margin="0 5 0 0"/>
-                    
+                   
                 </StackPanel>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding CurrentView}"/>

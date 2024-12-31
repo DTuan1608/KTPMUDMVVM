@@ -34,7 +34,7 @@
                 FontSize="20"  
                 Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=ucControlBar}">
-                <Image Height="15" Width="15" Source="E:\AnhKTPMUD\Close1.png" RenderTransformOrigin="0.5,0.525"/>
+                <Image Height="15" Width="15" Source="\Image\Close1.png" RenderTransformOrigin="0.5,0.525"/>
             </Button>
         </Border>
         <Border  Margin="0 0 34 0" Height="30" Width="30" HorizontalAlignment="Right">
@@ -46,8 +46,8 @@
                 FontSize="20"
                 HorizontalAlignment="Stretch"
                 Command="{Binding MaximizeWindowCommand}"
-                CommandParameter="{Binding ElementName=ucControlBar}"> 
-                <Image Height="15" Width="16" Source="E:\AnhKTPMUD\Ảnh1.png"/>
+                CommandParameter="{Binding ElementName=ucControlBar}">
+                <Image Height="15" Width="16" Source="\Image\Ảnh1.png"/>
             </Button>
         </Border>
         <Border BorderBrush="White" Margin="0 0 68 0" Height="30" Width="30" HorizontalAlignment="Right">
@@ -60,7 +60,7 @@
                 HorizontalAlignment="Stretch" 
                 Command="{Binding MinimizeWindowCommand}"
                 CommandParameter="{Binding ElementName=ucControlBar}">
-                <Image Height="15" Width="15" Source="E:\AnhKTPMUD\An.png"/>
+                <Image Height="15" Width="15" Source="\Image\An.png"/>
             </Button>
         </Border>
     </Grid>
