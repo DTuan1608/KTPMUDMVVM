@@ -13,10 +13,10 @@ namespace KTPMUDMVVM.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KyThuatPhanMemUngDungEntities1 : DbContext
+    public partial class DataEntities : DbContext
     {
-        public KyThuatPhanMemUngDungEntities1()
-            : base("name=KyThuatPhanMemUngDungEntities1")
+        public DataEntities()
+            : base("name=DataEntities")
         {
         }
     
@@ -42,7 +42,6 @@ namespace KTPMUDMVVM.Model
         public virtual DbSet<LoaiCoSo> LoaiCoSoes { get; set; }
         public virtual DbSet<Nguoi_dung> Nguoi_dung { get; set; }
         public virtual DbSet<SanPhamXuLyChatThai> SanPhamXuLyChatThais { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThongKeChanNuoi> ThongKeChanNuois { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
         public virtual DbSet<Tinh> Tinhs { get; set; }

@@ -32,13 +32,13 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-        private string _TenCB;
-        public string TenCB
+        private string _Ten;
+        public string Ten
         {
-            get => _TenCB;
+            get => _Ten;
             set
             {
-                _TenCB = value;
+                _Ten = value;
                 OnPropertyChangedEventHandler();
             }
         }
@@ -80,7 +80,7 @@ namespace KTPMUDMVVM.ViewModel
                         MaCB = SelectedItem.MaCB;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
-                        TenCB = SelectedItem.TenCB;
+                        Ten = SelectedItem.Ten;
                     }
                 }
             }
@@ -108,7 +108,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (MaXa == null || MaCB == null || TenCB == null || SoDT == null)
+                    if (MaXa == null || MaCB == null || Ten == null || SoDT == null)
                     {
                         MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -124,7 +124,7 @@ namespace KTPMUDMVVM.ViewModel
                     var unit = new CoSoCheBien
                     {
                         MaCB = MaCB,
-                        TenCB = TenCB,
+                        Ten = Ten,
                         MaXa = MaXa,
                         SoDT = SoDT
                     };
@@ -159,7 +159,7 @@ namespace KTPMUDMVVM.ViewModel
          {
 
              unit.MaCB = MaCB;
-             unit.TenCB = TenCB;
+             unit.Ten = Ten;
              unit.MaXa = MaXa;
              unit.SoDT = SoDT;
 
@@ -168,7 +168,7 @@ namespace KTPMUDMVVM.ViewModel
 
 
              SelectedItem.MaCB = MaCB;
-             SelectedItem.TenCB = TenCB;
+             SelectedItem.Ten = Ten;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
 
@@ -190,13 +190,13 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (MaCB == null || MaXa == null || TenCB == null || SoDT == null )
+                    if (MaCB == null || MaXa == null || Ten == null || SoDT == null )
                     {
                         LoadData();
                     }
                     var results = DataProvide.Ins.DB.CoSoCheBiens.Where(x =>
                    (string.IsNullOrEmpty(MaCB) || x.MaCB.Contains(MaCB)) &&
-                   (string.IsNullOrEmpty(TenCB) || x.TenCB.Contains(TenCB)) &&
+                   (string.IsNullOrEmpty(Ten) || x.Ten.Contains(Ten)) &&
                    (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
                    (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
                     .ToList();
@@ -248,7 +248,7 @@ namespace KTPMUDMVVM.ViewModel
         private void ClearInputFields()
         {
             MaCB = null;
-            TenCB = null;
+            Ten = null;
             MaXa = null;
             SoDT = null;
             SelectedItem = null;

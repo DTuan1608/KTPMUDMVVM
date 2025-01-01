@@ -31,13 +31,13 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-        private string _TenCN;
-        public string TenCN
+        private string _Ten;
+        public string Ten
         {
-            get => _TenCN;
+            get => _Ten;
             set
             {
-                _TenCN = value;
+                _Ten = value;
                 OnPropertyChangedEventHandler();
             }
         }
@@ -79,7 +79,7 @@ namespace KTPMUDMVVM.ViewModel
                         MaCN = SelectedItem.MaCN;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
-                        TenCN = SelectedItem.TenCN;
+                        Ten = SelectedItem.Ten;
                     }
                 }
             }
@@ -106,7 +106,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (MaXa == null || MaCN == null || TenCN == null || SoDT == null)
+                    if (MaXa == null || MaCN == null || Ten == null || SoDT == null)
                     {
                         MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -122,7 +122,7 @@ namespace KTPMUDMVVM.ViewModel
                     var unit = new CoSoChanNuoi
                     {
                         MaCN = MaCN,
-                        TenCN = TenCN,
+                        Ten = Ten,
                         MaXa = MaXa,
                         SoDT = SoDT
                     };
@@ -157,7 +157,7 @@ namespace KTPMUDMVVM.ViewModel
          {
 
              unit.MaCN = MaCN;
-             unit.TenCN = TenCN;
+             unit.Ten = Ten;
              unit.MaXa = MaXa;
              unit.SoDT = SoDT;
 
@@ -166,7 +166,7 @@ namespace KTPMUDMVVM.ViewModel
 
 
              SelectedItem.MaCN = MaCN;
-             SelectedItem.TenCN = TenCN;
+             SelectedItem.Ten  = Ten;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
 
@@ -193,13 +193,13 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (MaCN == null || MaXa == null || TenCN == null || SoDT == null)
+                    if (MaCN == null || MaXa == null || Ten == null || SoDT == null)
                     {
                         LoadData();
                     }
                     var results = DataProvide.Ins.DB.CoSoChanNuois.Where(x =>
                    (string.IsNullOrEmpty(MaCN) || x.MaCN.Contains(MaCN)) &&
-                   (string.IsNullOrEmpty(TenCN) || x.TenCN  .Contains(TenCN)) &&
+                   (string.IsNullOrEmpty(Ten) || x.Ten  .Contains(Ten)) &&
                    (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
                    (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
                     .ToList();
@@ -252,7 +252,7 @@ namespace KTPMUDMVVM.ViewModel
         private void ClearInputFields()
         {
             MaCN = null;
-            TenCN = null;
+            Ten = null;
             MaXa = null;
             SoDT = null;
             SelectedItem = null;

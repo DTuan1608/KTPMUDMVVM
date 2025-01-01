@@ -15,7 +15,7 @@ namespace KTPMUDMVVM.Model
     public partial class CoSoChanNuoi
     {
         public string MaCN { get; set; }
-        public string TenCN { get; set; }
+        public string Ten { get; set; }
         public string MaDV { get; set; }
         public Nullable<int> SoLuongDV { get; set; }
         public string SoDT { get; set; }

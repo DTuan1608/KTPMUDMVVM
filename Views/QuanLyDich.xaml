@@ -5,8 +5,89 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KTPMUDMVVM.Views"
              mc:Ignorable="d" 
+             DataContext="QLDBVM"
              d:DesignHeight="450" d:DesignWidth="800" Background="Coral">
-    <Grid>
-        <TextBlock Text="Quản Lý Dịch" FontSize="30" FontWeight="Black"/>
+
+    <Grid  Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row=" 0" Background="AliceBlue">
+            <TextBlock Text="QLDB" FontSize="30" FontWeight="Bold"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="Xã" Margin="5"/>
+                    <ComboBox 
+SelectedValue="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+SelectedValuePath="MaXa" 
+DisplayMemberPath="TenXa" 
+ItemsSource="{Binding MaXaList}" 
+Margin="5" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="Huyện" Margin="5"/>
+                    <ComboBox 
+    SelectedValue="{Binding MaHuyen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+    SelectedValuePath="MaHuyen" 
+    DisplayMemberPath="TenHuyen" 
+    ItemsSource="{Binding MaHuyenList}" 
+    Margin="5" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="Tỉnh" Margin="5"/>
+                    <ComboBox 
+    SelectedValue="{Binding MaTinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+    SelectedValuePath="MaTinh" 
+    DisplayMemberPath="TenTinh" 
+    ItemsSource="{Binding MaTinhList}" 
+    Margin="5" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Border Width="100" Height="25" CornerRadius="20" Background="Red" Margin="5 0">
+                        <Button Content="Tim Kiem" Background="Red" 
+    FontSize="10" VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch"
+    Margin="5 " BorderThickness="0"
+    Command="{Binding SearchCommand}">
+
+                        </Button>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row=" 2">
+            <StackPanel>
+                <ListView Background="LightBlue" ItemsSource="{Binding QLDBList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Ten Cac Co So" Width="500" DisplayMemberBinding="{Binding Ten}"></GridViewColumn>
+                            <GridViewColumn Header="Dich Benh " Width="300" DisplayMemberBinding="{Binding TenDB}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
+
 </UserControl>

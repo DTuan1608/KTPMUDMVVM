@@ -11,11 +11,27 @@ namespace KTPMUDMVVM.Model
         private static DataProvide _ins;
         public static DataProvide Ins { get { if (_ins == null) _ins = new DataProvide(); return _ins; }
             set { _ins = value; } }
-        public KyThuatPhanMemUngDungEntities1 DB { get; set; }
+        public DataEntities DB { get; set; }
          
         private DataProvide()
         {
-            DB = new KyThuatPhanMemUngDungEntities1();
+            DB = new DataEntities();
+        }
+        public class DataHelper
+        {
+            public static string GetTenDichBenh(string maDB)
+            {
+                if (string.IsNullOrEmpty(maDB))
+                {
+                    return "Không rõ";
+                }
+
+                // Tìm kiếm trong cơ sở dữ liệu
+                var dichBenh = DataProvide.Ins.DB.Dichbenhs
+                                .FirstOrDefault(db => db.MaDB == maDB);
+
+                return dichBenh != null ? dichBenh.TenDB : "Không rõ";
+            }
         }
     }
 }
