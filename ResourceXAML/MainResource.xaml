@@ -10,4 +10,6 @@
     <ViewModel:CSKNViewModel x:Key="CSKNVM"/>
     <ViewModel:DLBTViewModel x:Key="DLBTVM"/>
     <ViewModel:QLDBViewModel x:Key="QLDBVM"/>
+    <ViewModel:TGTHViewModel x:Key="TGTHVM"/>
+    <ViewModel:XLCTViewModel x:Key="XLCTVM"/>
 </ResourceDictionary>
