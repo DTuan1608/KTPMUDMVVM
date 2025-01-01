@@ -9,4 +9,5 @@
     <ViewModel:CSGMViewModel x:Key="CSGMVM"/>
     <ViewModel:CSKNViewModel x:Key="CSKNVM"/>
     <ViewModel:DLBTViewModel x:Key="DLBTVM"/>
+    <ViewModel:QLDBViewModel x:Key="QLDBVM"/>
 </ResourceDictionary>
