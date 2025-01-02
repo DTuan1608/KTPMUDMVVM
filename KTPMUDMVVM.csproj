@@ -168,6 +168,8 @@
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\QLDBViewModel.cs" />
+    <Compile Include="ViewModel\TGTHViewModel.cs" />
+    <Compile Include="ViewModel\XLCTViewModel.cs" />
     <Compile Include="Views\CoSoChanNuoi.xaml.cs">
       <DependentUpon>CoSoChanNuoi.xaml</DependentUpon>
     </Compile>

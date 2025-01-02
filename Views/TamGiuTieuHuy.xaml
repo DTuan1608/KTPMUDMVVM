@@ -5,9 +5,137 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KTPMUDMVVM.Views"
              mc:Ignorable="d" 
+             DataContext="TGTHVM"
              d:DesignHeight="450" d:DesignWidth="800" Background="Orange">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#a6deb7"></Setter>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Green"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    Height="50"
+                                    Width="80">
+                                    <ContentPresenter 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="Quản lý tạm giữ tiêu hủy" FontSize="29" FontWeight="Black" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid>
+            <Image Source="\Image\Nền user.png" Stretch="UniformToFill"></Image>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Tạm giữ tiêu hủy" 
+                FontSize="20" FontWeight="Bold"
+                FontFamily="Time New Roman"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <TextBlock Text="Mã Khu:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                            <TextBox Text="{Binding MaKhu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                        </Border>
+                        <TextBlock Text="Tên Khu:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                            <TextBox Text="{Binding TenKhu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                        </Border>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock Text="Mã Xã:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White" BorderBrush="Black" BorderThickness="2">
+                            <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+
+                        </Border>
+                        <TextBlock Text="Mã Dịch Vụ" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                            <TextBox Text="{Binding MaDv, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                    <Button Content = "Tìm kiếm" Background="Green"
+                         FontSize="16" VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Margin="7" BorderThickness="0"
+                         Command="{Binding SearchCommand}">
+                    </Button>
+                    <Button Content="Thêm" Background="Green" 
+                         FontSize="16" VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Margin="7" BorderThickness="0"
+                         Command="{Binding AddCommand}">
+
+                    </Button>
+
+                    <Button Content="Sửa" Background="Green"
+                        FontSize="16" VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Command="{Binding EditCommand}"
+                        BorderThickness="0" 
+                        Margin="7"
+                        Foreground="Black">
+                    </Button>
+
+                    <Button
+                        Content="Xóa"  Background="Red"
+                        FontSize="16" VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Command="{Binding DeleteCommand}"
+                        Margin="7" BorderThickness="0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Image Source="\Image\Nền User.png" Stretch="Uniform"></Image>
+                <ListView Background="LightBlue" ItemsSource="{Binding TGTHlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaKhu}"></GridViewColumn>
+                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenKhu}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
+                            <GridViewColumn Header="Mã Dịch Vụ" Width="100" DisplayMemberBinding="{Binding MaDV}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
 
     </Grid>
 </UserControl>
