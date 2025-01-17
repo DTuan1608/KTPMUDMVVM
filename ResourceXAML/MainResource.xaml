@@ -12,4 +12,6 @@
     <ViewModel:QLDBViewModel x:Key="QLDBVM"/>
     <ViewModel:TGTHViewModel x:Key="TGTHVM"/>
     <ViewModel:XLCTViewModel x:Key="XLCTVM"/>
+    <ViewModel:TCVViewModel x:Key="TCVVM"/>
+    <ViewModel:QLDVViewModel x:Key="QLDVVM"/>
 </ResourceDictionary>

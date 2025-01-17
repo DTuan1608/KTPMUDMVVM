@@ -5,8 +5,86 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KTPMUDMVVM.Views"
              mc:Ignorable="d" 
+             DataContext="QLDVVM"
                       d:DesignHeight="450" d:DesignWidth="800" Background="Coral">
-    <Grid>
-        <TextBlock Text="Quản lý động vật" FontSize="30" FontWeight="Black"/>
+    <Grid Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Background="AliceBlue">
+            <TextBlock Text="QLDV" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Grid>
+
+        <!-- Filter Section -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Loại Cơ Sở -->
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Text="Loại Cơ Sở" Margin="5"/>
+                    <ComboBox 
+                        SelectedValue="{Binding LoaiCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        ItemsSource="{Binding LoaiCSlist}" 
+                        Margin="5" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Xã -->
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Text="Xã" Margin="5"/>
+                    <ComboBox 
+                        SelectedItem="{Binding TenXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        DisplayMemberPath="TenXa"
+                        ItemsSource="{Binding TenXalist}" 
+                        Margin="5" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Tên Cơ Sở -->
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="Tên Cơ Sở" Margin="5"/>
+                    <ComboBox 
+                        SelectedValue="{Binding TenCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        ItemsSource="{Binding TenCSlist}" 
+                        Margin="5" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Tìm Kiếm -->
+            <Grid Grid.Column="3">
+                <Button Content="Tìm Kiếm" Background="Red" 
+                        FontSize="10" VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        Margin="5"
+                        Command="{Binding SearchCommand}" />
+            </Grid>
+        </Grid>
+
+        <!-- Data Display Section -->
+        <Grid Grid.Row="2">
+            <StackPanel>
+                <ListView Background="LightBlue" ItemsSource="{Binding QLDVlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Tên Động Vật" Width="500" DisplayMemberBinding="{Binding LoaiDV}"></GridViewColumn>
+                            <GridViewColumn Header="Số Lượng" Width="300" DisplayMemberBinding="{Binding MaDV}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
+
 </UserControl>
