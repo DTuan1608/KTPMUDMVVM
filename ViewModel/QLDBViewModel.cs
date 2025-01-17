@@ -87,38 +87,41 @@
                             LoadData();
                             return;
                         }
-                        
-                        QLDBList.Clear();
-                        var dataFromTable1 = DataProvide.Ins.DB.CoSoCheBiens
-                            .Where(item => item.MaXa == MaXa)
-                            .ToList() 
-                            .Select(item => new
-                            {
-                                item.Ten,
-                                TenDB = GetTenDichBenh(item.MaDB)
-                            });
-
-                        var dataFromTable2 = DataProvide.Ins.DB.CoSoChanNuois
-                            .Where(item => item.MaXa == MaXa)
-                            .ToList() // Tải dữ liệu ra bộ nhớ
-                            .Select(item => new
-                            {
-                                item.Ten,
-                                TenDB = GetTenDichBenh(item.MaDB)
-                            });
-
-                        var combinedData = dataFromTable1.Concat(dataFromTable2);
-
-                        foreach (var item in combinedData)
+                        if (MaXa != null)
                         {
-                            QLDBList.Add(item);
+                            QLDBList.Clear();
+                            var dataFromTable1 = DataProvide.Ins.DB.CoSoCheBiens
+                                .Where(item => item.MaXa == MaXa)
+                                .ToList()
+                                .Select(item => new
+                                {
+                                    item.Ten,
+                                    TenDB = GetTenDichBenh(item.MaDB)
+                                });
+
+                            var dataFromTable2 = DataProvide.Ins.DB.CoSoChanNuois
+                                .Where(item => item.MaXa == MaXa)
+                                .ToList() // Tải dữ liệu ra bộ nhớ
+                                .Select(item => new
+                                {
+                                    item.Ten,
+                                    TenDB = GetTenDichBenh(item.MaDB)
+                                });
+                            var combinedData = dataFromTable1.Concat(dataFromTable2);
+
+                            foreach (var item in combinedData)
+                            {
+                                QLDBList.Add(item);
+                            }
+
+                            OnPropertyChanged(nameof(QLDBList));
+                            MaHuyen = null;
+                            MaXa = null;
+                            MaTinh = null;
                         }
 
-                        OnPropertyChanged(nameof(QLDBList));
-                        MaHuyen = null;
-                        MaXa = null;
-                        MaTinh = null;
                     }
+
                 );
             }
             public string GetTenDichBenh(string maDB)
