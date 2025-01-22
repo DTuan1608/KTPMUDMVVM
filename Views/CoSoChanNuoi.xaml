@@ -6,8 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewmodel="clr-namespace:KTPMUDMVVM.ViewModel"           
              mc:Ignorable="d" 
-             DataContext="{StaticResource CSCNVM}"
-             >
+             DataContext="{StaticResource CSCNVM}">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#a6deb7"></Setter>
@@ -22,13 +21,8 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    Height="50"
-                                    Width="80">
-                                    <ContentPresenter 
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Center"/>
+                                <Border x:Name="border" Background="{TemplateBinding Background}" Height="50" Width="80">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>    
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
@@ -38,17 +32,15 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Grid>
-            <Image Source="\Image\Nền user.png" Stretch="UniformToFill"></Image>
-        </Grid>
+        <Image Source="/Image/Nền user.png" Stretch="Fill"></Image>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="130"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Quản lý cơ sở chăn nuôi" 
+            <TextBlock Text="QUẢN LÝ CƠ SỞ CHĂN NUÔI" 
                 FontSize="20" FontWeight="Bold"
                 FontFamily="Time New Roman"
                 VerticalAlignment="Center"
@@ -59,37 +51,41 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <StackPanel>
-                        <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                            <TextBox Text="{Binding MaCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
-
-                        </Border>
-                        <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                            <TextBox Text="{Binding TenCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
-
-                        </Border>
+                    <StackPanel Margin="70 0 0 0">
+                        <Grid Margin="0 10 0 0">
+                            <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding MaCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1">
                     <StackPanel>
-                        <TextBlock Text="Địa chỉ:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White" BorderBrush="Black" BorderThickness="2">
-                            <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
-
-                        </Border>
-                        <TextBlock Text="Số điện thoại:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                        <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                            <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
-                            </TextBox>
-                        </Border>
+                        <Grid Margin="0 10 0 0">
+                            <TextBlock Text="Địa chỉ:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Số điện thoại:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
+                        
                     </StackPanel>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-
                     <Button Content = "Tìm kiếm" Background="Green"
                          FontSize="16" VerticalAlignment="Center"
                          HorizontalAlignment="Center"
@@ -101,9 +97,7 @@
                          HorizontalAlignment="Center"
                          Margin="7" BorderThickness="0"
                          Command="{Binding AddCommand}">
-
                     </Button>
-
                     <Button Content="Sửa" Background="Green"
                         FontSize="16" VerticalAlignment="Center"
                         HorizontalAlignment="Center"
@@ -112,31 +106,43 @@
                         Margin="7"
                         Foreground="Black">
                     </Button>
-                
+
                     <Button
                         Content="Xóa"  Background="Red"
                         FontSize="16" VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Command="{Binding DeleteCommand}"
-                        Margin="7" BorderThickness="0"> 
+                        Margin="7" BorderThickness="0">
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Row="3">
-                <Image Source="\Image\Nền User.png" Stretch="Uniform"></Image>
-                <ListView Background="LightBlue" ItemsSource="{Binding CSCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                   
+            <Border Grid.Row="3" CornerRadius="20"  Background="Transparent" BorderBrush="Black" BorderThickness="3"  Height="400" Width="900" Padding="5">
+                <ListView Background="Transparent" ItemsSource="{Binding CSCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" BorderThickness="0">
+                    <ListView.Resources>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Background" Value="LightGreen" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontFamily" Value="Time New Roman"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaCN}"></GridViewColumn>
-                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenCN}"></GridViewColumn>
+                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding Ten}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
                             <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
-            </Grid>
+            </Border>
         </Grid>
-        
     </Grid>
 </UserControl>

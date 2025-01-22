@@ -185,6 +185,9 @@
       <DependentUpon>CoSoKhaoNghiem.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CSKNViewModel.cs" />
+    <Compile Include="Views\CoSoSanXuat.xaml.cs">
+      <DependentUpon>CoSoSanXuat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DaiLyBanThuoc.xaml.cs">
       <DependentUpon>DaiLyBanThuoc.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CoSoKhaoNghiem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CoSoSanXuat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,10 +13,10 @@ namespace KTPMUDMVVM.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataEntities : DbContext
+    public partial class KyThuatPhanMemUngDungEntities2 : DbContext
     {
-        public DataEntities()
-            : base("name=DataEntities")
+        public KyThuatPhanMemUngDungEntities2()
+            : base("name=KyThuatPhanMemUngDungEntities2")
         {
         }
     

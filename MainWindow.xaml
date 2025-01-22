@@ -80,6 +80,11 @@
                             Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="XuLyChatThai" 
                             Margin="0 5 0 0"/>
+                    <Button Content="Cơ sở sản xuất"
+                            Command="{Binding ChangeViewCommand}" 
+                            CommandParameter="CoSoXanXuat" 
+                            Margin="0 5 0 0"
+                            />
                     <Button Content="Cơ sở khảo nghiệm" 
                             Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoKhaoNghiem" 

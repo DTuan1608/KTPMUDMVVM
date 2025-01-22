@@ -166,7 +166,7 @@ namespace KTPMUDMVVM.ViewModel
 
 
              SelectedItem.MaCN = MaCN;
-             SelectedItem.Ten  = Ten;
+             SelectedItem.Ten = Ten;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
 
@@ -184,7 +184,7 @@ namespace KTPMUDMVVM.ViewModel
             SearchCommand = new RelayCommand<object>(
                 (p) =>
                 {
-                    //if (DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN || x.TenCN == TenCN || x.MaXa == MaXa || x.SoDT == SoDT) == null || MaCN != null)
+                    //if (DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN || x.Ten == Ten || x.MaXa == MaXa || x.SoDT == SoDT) == null || MaCN != null)
                     //{
 
                     //    return false;
@@ -199,7 +199,7 @@ namespace KTPMUDMVVM.ViewModel
                     }
                     var results = DataProvide.Ins.DB.CoSoChanNuois.Where(x =>
                    (string.IsNullOrEmpty(MaCN) || x.MaCN.Contains(MaCN)) &&
-                   (string.IsNullOrEmpty(Ten) || x.Ten  .Contains(Ten)) &&
+                   (string.IsNullOrEmpty(Ten) || x.Ten.Contains(Ten)) &&
                    (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
                    (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
                     .ToList();

@@ -96,6 +96,9 @@ namespace KTPMUDMVVM.ViewModel
                 case "XuLyChatThai":
                     CurrentView = new XuLyChatThai();
                     break;
+                case "CoSoSanXuat":
+                    CurrentView = new CoSoSanXuat();
+                    break;
                 case "CoSoKhaoNghiem":
                     CurrentView = new CoSoKhaoNghiem();
                     break;
@@ -105,7 +108,6 @@ namespace KTPMUDMVVM.ViewModel
                 case "CoSoGietMo":
                     CurrentView = new CoSoGietMo();
                     break;
-                    
                 case "ToChucVaVung":
                     CurrentView = new ToChucVaVung();
                     break;
