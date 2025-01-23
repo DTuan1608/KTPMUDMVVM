@@ -139,10 +139,11 @@
                     <ListView.View>
                         
                         <GridView>
-                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaGM}"></GridViewColumn>
-                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenGM}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
-                            <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"></GridViewColumn>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaGM}"/>
+                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenGM}"/>
+                            <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"/>
+                            <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"/>
+                            <GridViewColumn Header="Tên loại cơ sở" DisplayMemberBinding="{Binding LoaiCoSo.TenLCS}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

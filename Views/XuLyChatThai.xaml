@@ -72,7 +72,7 @@
                         <Grid Margin="0 20 0 0">
                             <TextBlock Text="Cơ sở sản xuất:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                <TextBox Text="{Binding TenSP, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                <TextBox Text="{Binding CSXS.TenSX, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                     </StackPanel>
@@ -95,7 +95,7 @@
                         <Grid Margin="0 20 0 0">
                             <TextBlock Text="Cơ sở khảo nghiệm:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                <TextBox Text="{Binding TenSP, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                <TextBox Text="{Binding CSKN.TenKN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                     </StackPanel>
@@ -165,9 +165,11 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Tên Sản Phẩm" Width="250" DisplayMemberBinding="{Binding TenSP}"></GridViewColumn>
-                            <GridViewColumn Header="Loại Sản Phẩm" Width="200" DisplayMemberBinding="{Binding LoaiSP}"></GridViewColumn>
-                            <GridViewColumn Header="Hạn sử dụng" Width="250" DisplayMemberBinding="{Binding HanSD}"></GridViewColumn>
+                            <GridViewColumn Header="Tên Sản Phẩm" DisplayMemberBinding="{Binding TenSP}"/>
+                            <GridViewColumn Header="Loại Sản Phẩm"  DisplayMemberBinding="{Binding LoaiSP}"/>
+                            <GridViewColumn Header="Hạn sử dụng" DisplayMemberBinding="{Binding HanSD}"/>
+                            <GridViewColumn Header="Cơ sở sản xuất" DisplayMemberBinding="{Binding CoSoSanXuatSP.TenSX}"/>
+                            <GridViewColumn Header="Cơ sở khảo nghiệm" DisplayMemberBinding="{Binding CoSoKhaoNghiemSP.TenKN}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

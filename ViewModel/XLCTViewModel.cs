@@ -65,6 +65,28 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
+        private CoSoKhaoNghiemSP _CSKN;
+        public CoSoKhaoNghiemSP CSKN
+        {
+            get => _CSKN;
+            set
+            {
+                _CSKN = value;
+                OnPropertyChangedEventHandler();
+            }
+        }
+
+        private CoSoSanXuatSP _CSXS;
+        public CoSoSanXuatSP CSXS
+        {
+            get => _CSXS;
+            set 
+            {
+                _CSXS = value;
+                OnPropertyChangedEventHandler();
+            }
+        }
+
         private SanPhamXuLyChatThai _SelectedItem;
         public SanPhamXuLyChatThai SelectedItem
         {
@@ -81,6 +103,8 @@ namespace KTPMUDMVVM.ViewModel
                         TenSP = SelectedItem.TenSP;
                         LoaiSP = SelectedItem.LoaiSP;
                         HanSD = SelectedItem.HanSD;
+                        CSKN = SelectedItem.CoSoKhaoNghiemSP;
+                        CSXS = SelectedItem.CoSoSanXuatSP;
                     }
                 }
             }
@@ -107,7 +131,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (HanSD == null || MaSP == null || TenSP == null || LoaiSP == null)
+                    if (HanSD == null || MaSP == null || TenSP == null || LoaiSP == null || CSXS == null || CSXS == null)
                     {
                         MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -119,7 +143,9 @@ namespace KTPMUDMVVM.ViewModel
                         MaSP = MaSP,
                         TenSP = TenSP,
                         LoaiSP = LoaiSP,
-                        HanSD = HanSD
+                        HanSD = HanSD,
+                        CoSoSanXuatSP = CSXS,
+                        CoSoKhaoNghiemSP = CSKN
                     };
 
                     DataProvide.Ins.DB.SanPhamXuLyChatThais.Add(unit);
@@ -146,7 +172,8 @@ namespace KTPMUDMVVM.ViewModel
              unit.TenSP = TenSP;
              unit.LoaiSP = LoaiSP;
              unit.HanSD = HanSD;
-
+             unit.CoSoKhaoNghiemSP = CSKN;
+             unit.CoSoSanXuatSP = CSXS;
 
              DataProvide.Ins.DB.SaveChanges();
 
@@ -155,6 +182,8 @@ namespace KTPMUDMVVM.ViewModel
              SelectedItem.TenSP = TenSP;
              SelectedItem.LoaiSP = LoaiSP;
              SelectedItem.HanSD = HanSD;
+             SelectedItem.CoSoKhaoNghiemSP = CSKN;
+             SelectedItem.CoSoSanXuatSP = CSXS;
 
 
              OnPropertyChangedEventHandler(nameof(XLCTlist));
@@ -179,7 +208,7 @@ namespace KTPMUDMVVM.ViewModel
                 },
                 (p) =>
                 {
-                    if (MaSP == null || LoaiSP == null || TenSP == null || HanSD == null)
+                if (MaSP == null || LoaiSP == null || TenSP == null || HanSD == null || CSXS == null || CSKN == null)
                     {
                         LoadData();
                     }
@@ -241,6 +270,8 @@ namespace KTPMUDMVVM.ViewModel
             LoaiSP = null;
             HanSD = null;
             SelectedItem = null;
+            CSKN = null;
+            CSXS = null;
         }
     }
 }

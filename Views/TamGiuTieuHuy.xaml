@@ -144,10 +144,12 @@
                     </ListView.ItemContainerStyle>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaKhu}"></GridViewColumn>
-                            <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenKhu}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
-                            <GridViewColumn Header="Mã Dịch Vụ" Width="100" DisplayMemberBinding="{Binding MaDV}"></GridViewColumn>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MaKhu}"></GridViewColumn>
+                            <GridViewColumn Header="Tên cơ sở" DisplayMemberBinding="{Binding TenKhu}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ"  DisplayMemberBinding="{Binding Xa.TenXa}"></GridViewColumn>
+                            <GridViewColumn Header="Mã Động Vật" DisplayMemberBinding="{Binding MaDV}"></GridViewColumn>
+                            <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}"/>
+                            <GridViewColumn Header="Ngày Tạm Giữ" DisplayMemberBinding="{Binding NgayTG}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -22,7 +22,7 @@ namespace KTPMUDMVVM.ViewModel
                 {
                     _tenXa = value;
                     OnPropertyChanged(nameof(TenXa));
-                    UpdateTenCSList();
+                    UpdateTenCSList(); // Cập nhật lại danh sách cơ sở khi chọn một xã mới
                 }
             }
         }
@@ -109,14 +109,17 @@ namespace KTPMUDMVVM.ViewModel
                     OnPropertyChanged(nameof(QLDVlist));
                 }
             }
-        }
+        } 
+
+
 
         public ICommand SearchCommand { get; private set; }
 
         public QLDVViewModel()
         {
             LoadData();
-            TenCSlist = new ObservableCollection<string>(DataProvide.Ins.DB.CoSoChanNuois.Select(x=>x.Ten).ToList());
+            QLDVlist = new ObservableCollection<DongVat>();
+            TenCSlist = new ObservableCollection<string>(DataProvide.Ins.DB.CoSoChanNuois.Select(x => x.Ten).ToList());
             InitializeCommands();
         }
 
@@ -137,25 +140,19 @@ namespace KTPMUDMVVM.ViewModel
         {
             try
             {
+                // Làm trống danh sách động vật trước khi tìm kiếm
+                QLDVlist.Clear();
+
                 if (LoaiCS == "Cơ sở chăn nuôi")
                 {
-                    //var coSoChanNuoiList = DataProvide.Ins.DB.CoSoChanNuois
-                    //    .Where(x => x.Ten == TenCS)
-                    //    .ToList();
-
-                    //if (!coSoChanNuoiList.Any())
-                    //{
-                    //    MessageBox.Show("Không tìm thấy cơ sở chăn nuôi nào khớp với tên đã nhập.", "Thông báo");
-                    //    return;
-                    //}
-
                     var dongVatList = DataProvide.Ins.DB.CoSoChanNuois
-    .Where(x => x.Ten == TenCS)
-    .Select(x => x.MaDV)
-    .ToList();
+                        .Where(x => x.Ten == TenCS)
+                        .Select(x => x.MaDV)
+                        .ToList();
 
-                    if (dongVatList == null || !dongVatList.Any())
+                    if (!dongVatList.Any())
                     {
+                        MessageBox.Show("Không tìm thấy cơ sở chăn nuôi nào khớp với tên đã nhập.", "Thông báo");
                         return;
                     }
 
@@ -167,30 +164,24 @@ namespace KTPMUDMVVM.ViewModel
                         {
                             QLDVlist.Add(dongVat);
                         }
-                        else
-                        {
-                            // Nếu không tìm thấy động vật, dừng xử lý
-                            return;
-                        }
                     }
                     OnPropertyChanged(nameof(QLDVlist));
                 }
-
                 else if (LoaiCS == "Cơ sở chế biến")
                 {
-                    //var coSoCheBienList = DataProvide.Ins.DB.CoSoCheBiens
-                    //    .Where(x => x.Ten == TenCS)
-                    //    .ToList();
+                    var coSoCheBienList = DataProvide.Ins.DB.CoSoCheBiens
+                        .Where(x => x.Ten == TenCS)
+                        .ToList();
 
-                    //if (!coSoCheBienList.Any())
-                    //{
-                    //    MessageBox.Show("Không tìm thấy cơ sở chế biến nào khớp với tên đã nhập.", "Thông báo");
-                    //    return;
-                    //}
+                    if (!coSoCheBienList.Any())
+                    {
+                        MessageBox.Show("Không tìm thấy cơ sở chế biến nào khớp với tên đã nhập.", "Thông báo");
+                        return;
+                    }
 
-                    //var dongVatList = coSoCheBienList.Select(x => x.DongVat).ToList();
-                    //QLDVlist = new ObservableCollection<DongVat>(dongVatList);
-                    //OnPropertyChanged(nameof(QLDVlist)); // Cập nhật danh sách động vật
+                    var dongVatList = coSoCheBienList.Select(x => x.DongVat).ToList();
+                    QLDVlist = new ObservableCollection<DongVat>(dongVatList);
+                    OnPropertyChanged(nameof(QLDVlist)); // Cập nhật danh sách động vật
                 }
 
                 // Reset các giá trị
@@ -210,52 +201,49 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-
         private void LoadData()
         {
-                TenXalist = new ObservableCollection<Xa>(DataProvide.Ins.DB.Xas.ToList());
-                LoaiCSlist = new ObservableCollection<string> { "Cơ sở chăn nuôi", "Cơ sở chế biến" };
-                TenCSlist = new ObservableCollection<string>();
-            
+            TenXalist = new ObservableCollection<Xa>(DataProvide.Ins.DB.Xas.ToList());
+            LoaiCSlist = new ObservableCollection<string> { "Cơ sở chăn nuôi", "Cơ sở chế biến" };
+            TenCSlist = new ObservableCollection<string>();
         }
 
         private void UpdateTenCSList()
         {
+            if (TenXa == null) return; // Kiểm tra nếu xã chưa được chọn
 
-                if (LoaiCS == "Cơ sở chăn nuôi") // Cơ Sở Chăn Nuôi
-                {
-                    TenCSlist = new ObservableCollection<string>(
-                        DataProvide.Ins.DB.CoSoChanNuois
-                            .Where(x => x.MaXa == TenXa.MaXa)
-                            .Select(x => x.Ten)
-                            .ToList()
-                    );
-                    OnPropertyChangedEventHandler();
-                }
-                else if (LoaiCS == "Cơ sở chế biến") // Cơ Sở Chế Biến
-                {
-                    TenCSlist = new ObservableCollection<string>(
-                        DataProvide.Ins.DB.CoSoCheBiens
-                            .Where(x => x.MaXa == TenXa.MaXa)
-                            .Select(x => x.Ten)
-                            .ToList()
-                    );
-                    OnPropertyChangedEventHandler();
-                }
+            if (LoaiCS == "Cơ sở chăn nuôi") // Cơ Sở Chăn Nuôi
+            {
+                TenCSlist = new ObservableCollection<string>(
+                    DataProvide.Ins.DB.CoSoChanNuois
+                        .Where(x => x.MaXa == TenXa.MaXa)
+                        .Select(x => x.Ten)
+                        .ToList()
+                );
+            }
+            else if (LoaiCS == "Cơ sở chế biến") // Cơ Sở Chế Biến
+            {
+                TenCSlist = new ObservableCollection<string>(
+                    DataProvide.Ins.DB.CoSoCheBiens
+                        .Where(x => x.MaXa == TenXa.MaXa)
+                        .Select(x => x.Ten)
+                        .ToList()
+                );
+            }
 
+            OnPropertyChanged(nameof(TenCSlist));
         }
+
         public DongVat FindDongVatByMaDV(string maDV)
         {
             try
             {
-                // Kiểm tra dữ liệu đầu vào
                 if (string.IsNullOrEmpty(maDV))
                 {
                     MessageBox.Show("Mã động vật không hợp lệ.", "Thông báo");
                     return null;
                 }
 
-                // Tìm động vật trong cơ sở dữ liệu
                 DongVat dongVat = DataProvide.Ins.DB.DongVats.FirstOrDefault(x => x.MaDV == maDV);
 
                 if (dongVat == null)
@@ -271,6 +259,7 @@ namespace KTPMUDMVVM.ViewModel
                 return null;
             }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {

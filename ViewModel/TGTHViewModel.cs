@@ -151,8 +151,8 @@ namespace KTPMUDMVVM.ViewModel
              MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
              MaXa = null;
              return;
-         }
 
+         }
          var unit = DataProvide.Ins.DB.KhuTamGius.SingleOrDefault(x => x.MaKhu == MaKhu);
          if (unit != null)
          {
@@ -161,7 +161,7 @@ namespace KTPMUDMVVM.ViewModel
              unit.TenKhu = TenKhu;
              unit.MaXa = MaXa;
              unit.MaDV = MaDV;
-
+             unit.Xa = FindXaByMaXa(MaXa);
 
              DataProvide.Ins.DB.SaveChanges();
 
@@ -248,6 +248,34 @@ namespace KTPMUDMVVM.ViewModel
             TGTHlist = new ObservableCollection<KhuTamGiu>(
                 DataProvide.Ins.DB.KhuTamGius);
             OnPropertyChangedEventHandler();
+        }
+
+        private Xa FindXaByMaXa(string maXa)
+        {
+            try
+            {
+                // Kiểm tra nếu maXa không rỗng
+                if (string.IsNullOrEmpty(maXa))
+                {
+                    MessageBox.Show("Mã xã không hợp lệ.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+
+                // Tìm xã trong cơ sở dữ liệu
+                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == maXa);
+
+                if (xa == null)
+                {
+                    MessageBox.Show($"Không tìm thấy xã với Mã: {maXa}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                return xa;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
         }
 
         private void ClearInputFields()
