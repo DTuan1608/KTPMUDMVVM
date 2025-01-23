@@ -140,8 +140,9 @@
                         <GridView>
                             <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding MaDL}"></GridViewColumn>
                             <GridViewColumn Header="Tên cơ sở" Width="150" DisplayMemberBinding="{Binding TenDL}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" Width="200" DisplayMemberBinding="{Binding MaXa}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ"  DisplayMemberBinding="{Binding Xa.TenXa}"></GridViewColumn>
                             <GridViewColumn Header="Số điện thoại" Width="100" DisplayMemberBinding="{Binding SoDT}"></GridViewColumn>
+                            <GridViewColumn Header="Mã Loại Cơ Sở" Width="50" DisplayMemberBinding="{Binding MaLCS}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

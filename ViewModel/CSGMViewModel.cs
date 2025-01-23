@@ -100,10 +100,10 @@ namespace KTPMUDMVVM.ViewModel
             AddCommand = new RelayCommand<object>(
                     (p) =>
                     {
-                        if (DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == MaGM) == true)
-                        {
-                            return false;
-                        }
+                        //if (DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == MaGM) == true)
+                        //{
+                        //    return false;
+                        //}
                         return !string.IsNullOrEmpty(MaGM) && DataProvide.Ins.DB.CoSoGietMoes.Any(x => x.MaGM == SelectedItem.MaGM);
                     },
                     (p) =>
@@ -132,6 +132,7 @@ namespace KTPMUDMVVM.ViewModel
                         DataProvide.Ins.DB.CoSoGietMoes.Add(unit);
                         DataProvide.Ins.DB.SaveChanges();
                         CSGMlist.Add(unit);
+                        OnPropertyChangedEventHandler();
                         ClearInputFields();
                     });
 

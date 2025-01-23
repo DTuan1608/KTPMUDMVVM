@@ -65,6 +65,8 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
+        
+
         private CoSoKhaoNghiemSP _SelectedItem;
         public CoSoKhaoNghiemSP SelectedItem
         {
@@ -81,6 +83,7 @@ namespace KTPMUDMVVM.ViewModel
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
                         TenKN = SelectedItem.TenKN;
+                        
                     }
                 }
             }
@@ -90,7 +93,6 @@ namespace KTPMUDMVVM.ViewModel
         public ICommand EditCommand { get; set; }
         public ICommand SearchCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-
         public ICommand DetailCommand { get; set; }
 
         public CSKNViewModel()
@@ -108,7 +110,7 @@ namespace KTPMUDMVVM.ViewModel
                     },
                     (p) =>
                     {
-                        if (MaXa == null || MaKN == null || TenKN == null || SoDT == null)
+                        if (MaXa == null || MaKN == null || TenKN == null || SoDT == null )
                         {
                             MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
@@ -132,6 +134,7 @@ namespace KTPMUDMVVM.ViewModel
                         DataProvide.Ins.DB.CoSoKhaoNghiemSPs.Add(unit);
                         DataProvide.Ins.DB.SaveChanges();
                         CSKNlist.Add(unit);
+                        OnPropertyChangedEventHandler();
                         ClearInputFields();
                     });
 
@@ -162,16 +165,11 @@ namespace KTPMUDMVVM.ViewModel
              unit.TenKN = TenKN;
              unit.MaXa = MaXa;
              unit.SoDT = SoDT;
-
-
              DataProvide.Ins.DB.SaveChanges();
-
-
              SelectedItem.MaKN = MaKN;
              SelectedItem.TenKN = TenKN;
              SelectedItem.MaXa = MaXa;
              SelectedItem.SoDT = SoDT;
-
 
              OnPropertyChangedEventHandler(nameof(CSKNlist));
              MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);

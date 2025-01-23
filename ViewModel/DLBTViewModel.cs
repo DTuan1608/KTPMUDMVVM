@@ -43,14 +43,15 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
-        private string _MaXa;
-        public string MaXa
+        public string DiaChi
         {
-            get => _MaXa;
-            set
+            get
             {
-                _MaXa = value;
-                OnPropertyChangedEventHandler();
+                if (string.IsNullOrEmpty(MaXa))
+                    return "Không có địa chỉ";
+                
+                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == MaXa);
+                return xa.TenXa;
             }
         }
 
@@ -81,11 +82,22 @@ namespace KTPMUDMVVM.ViewModel
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
                         TenDL = SelectedItem.TenDL;
+                        
                     }
                 }
             }
         }
 
+        private string _MaXa;
+        public string MaXa
+        {
+            get => _MaXa;
+            set
+            {
+
+                    _MaXa = value;
+            }
+        }
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand SearchCommand { get; set; }
@@ -166,7 +178,6 @@ namespace KTPMUDMVVM.ViewModel
 
              DataProvide.Ins.DB.SaveChanges();
 
-
              SelectedItem.MaDL = MaDL;
              SelectedItem.TenDL = TenDL;
              SelectedItem.MaXa = MaXa;
@@ -245,6 +256,33 @@ namespace KTPMUDMVVM.ViewModel
                 DataProvide.Ins.DB.DaiLyBanThuocs);
         }
 
+        private string FindXaByMaXa(string maXa)
+        {
+            try
+            {
+                // Kiểm tra nếu maXa không rỗng
+                if (string.IsNullOrEmpty(maXa))
+                {
+                    MessageBox.Show("Mã xã không hợp lệ.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+
+                // Tìm xã trong cơ sở dữ liệu
+                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == maXa);
+
+                if (xa == null)
+                {
+                    MessageBox.Show($"Không tìm thấy xã với Mã: {maXa}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                return xa.TenXa;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
         private void ClearInputFields()
         {
             MaDL = null;

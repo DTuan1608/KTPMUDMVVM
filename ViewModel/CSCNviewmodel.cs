@@ -64,6 +64,16 @@ namespace KTPMUDMVVM.ViewModel
             }
         }
 
+        private string _Dongvat;
+        public string Dongvat
+        {
+            get=> _Dongvat;
+            set
+            {
+                _Dongvat = value;
+            }
+        }
+
         private CoSoChanNuoi _SelectedItem;
         public CoSoChanNuoi SelectedItem
         {
@@ -76,6 +86,7 @@ namespace KTPMUDMVVM.ViewModel
                     OnPropertyChangedEventHandler();
                     if (SelectedItem != null)
                     {
+                        
                         MaCN = SelectedItem.MaCN;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
@@ -131,6 +142,7 @@ namespace KTPMUDMVVM.ViewModel
                     DataProvide.Ins.DB.SaveChanges();
                     CSCNlist.Add(unit);
                     ClearInputFields();
+                    OnPropertyChangedEventHandler();
                 });
 
             EditCommand = new RelayCommand<object>(
@@ -247,6 +259,34 @@ namespace KTPMUDMVVM.ViewModel
             CSCNlist = new ObservableCollection<CoSoChanNuoi>(
                 DataProvide.Ins.DB.CoSoChanNuois);
             OnPropertyChangedEventHandler();
+        }
+
+        private Xa FindXaByMaXa(string maXa)
+        {
+            try
+            {
+                // Kiểm tra nếu maXa không rỗng
+                if (string.IsNullOrEmpty(maXa))
+                {
+                    MessageBox.Show("Mã xã không hợp lệ.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+
+                // Tìm xã trong cơ sở dữ liệu
+                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == maXa);
+
+                if (xa == null)
+                {
+                    MessageBox.Show($"Không tìm thấy xã với Mã: {maXa}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                return xa;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
         }
 
         private void ClearInputFields()
