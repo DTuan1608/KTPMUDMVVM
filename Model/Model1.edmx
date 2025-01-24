@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KyThuatPhanMemUngDungModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiCucThuY">
           <Key>
             <PropertyRef Name="MaCC" />
@@ -167,7 +167,7 @@
           <Property Name="MaXa" Type="varchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'Data.dbo.QuanLyDaiLy' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6013: The table/view 'KyThuatPhanMemUngDung.dbo.QuanLyDaiLy' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="QuanLyDaiLy">
           <Property Name="MaDL" Type="varchar" MaxLength="20" />
           <Property Name="MaT" Type="varchar" MaxLength="20" />
@@ -606,10 +606,10 @@ warning 6013: The table/view 'Data.dbo.QuanLyDaiLy' does not have a primary key 
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, but cannot be found.
+error 6004: The table 'KyThuatPhanMemUngDung.dbo.QuanLyDaiLy' is referenced by a relationship, but cannot be found.
         <Association Name="FK__QuanLyDaiLy__MaT__7D439ABD" />-->
         <!--Errors Found During Generation:
-error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, but cannot be found.
+error 6004: The table 'KyThuatPhanMemUngDung.dbo.QuanLyDaiLy' is referenced by a relationship, but cannot be found.
         <Association Name="FK__QuanLyDaiLy__MaT__7E37BEF6" />-->
         <Association Name="FK__SanPhamXuL__MaKN__4BAC3F29">
           <End Role="CoSoSanXuatSP" Type="Self.CoSoSanXuatSP" Multiplicity="0..1" />
@@ -671,7 +671,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataModelStoreContainer">
+        <EntityContainer Name="KyThuatPhanMemUngDungModelStoreContainer">
           <EntitySet Name="ChiCucThuY" EntityType="Self.ChiCucThuY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSoCapGCN" EntityType="Self.CoSoCapGCN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSoChanNuoi" EntityType="Self.CoSoChanNuoi" Schema="dbo" store:Type="Tables" />
@@ -844,7 +844,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="KyThuatPhanMemUngDungModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChiCucThuY">
           <Key>
             <PropertyRef Name="MaCC" />
@@ -1571,7 +1571,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KyThuatPhanMemUngDungEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChiCucThuYs" EntityType="Self.ChiCucThuY" />
           <EntitySet Name="CoSoCapGCNs" EntityType="Self.CoSoCapGCN" />
           <EntitySet Name="CoSoChanNuois" EntityType="Self.CoSoChanNuoi" />
@@ -1745,9 +1745,9 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
+        <EntityContainerMapping StorageEntityContainer="KyThuatPhanMemUngDungModelStoreContainer" CdmEntityContainer="KyThuatPhanMemUngDungEntities3">
           <EntitySetMapping Name="ChiCucThuYs">
-            <EntityTypeMapping TypeName="DataModel.ChiCucThuY">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.ChiCucThuY">
               <MappingFragment StoreEntitySet="ChiCucThuY">
                 <ScalarProperty Name="MaCC" ColumnName="MaCC" />
                 <ScalarProperty Name="TenCC" ColumnName="TenCC" />
@@ -1758,7 +1758,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoCapGCNs">
-            <EntityTypeMapping TypeName="DataModel.CoSoCapGCN">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoCapGCN">
               <MappingFragment StoreEntitySet="CoSoCapGCN">
                 <ScalarProperty Name="MaCSGCN" ColumnName="MaCSGCN" />
                 <ScalarProperty Name="TenCSGCN" ColumnName="TenCSGCN" />
@@ -1769,7 +1769,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoChanNuois">
-            <EntityTypeMapping TypeName="DataModel.CoSoChanNuoi">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoChanNuoi">
               <MappingFragment StoreEntitySet="CoSoChanNuoi">
                 <ScalarProperty Name="MaCN" ColumnName="MaCN" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
@@ -1786,7 +1786,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoCheBiens">
-            <EntityTypeMapping TypeName="DataModel.CoSoCheBien">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoCheBien">
               <MappingFragment StoreEntitySet="CoSoCheBien">
                 <ScalarProperty Name="MaCB" ColumnName="MaCB" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
@@ -1803,7 +1803,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoGietMoes">
-            <EntityTypeMapping TypeName="DataModel.CoSoGietMo">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoGietMo">
               <MappingFragment StoreEntitySet="CoSoGietMo">
                 <ScalarProperty Name="MaGM" ColumnName="MaGM" />
                 <ScalarProperty Name="TenGM" ColumnName="TenGM" />
@@ -1814,7 +1814,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoKhaoNghiemSPs">
-            <EntityTypeMapping TypeName="DataModel.CoSoKhaoNghiemSP">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoKhaoNghiemSP">
               <MappingFragment StoreEntitySet="CoSoKhaoNghiemSP">
                 <ScalarProperty Name="MaKN" ColumnName="MaKN" />
                 <ScalarProperty Name="TenKN" ColumnName="TenKN" />
@@ -1825,7 +1825,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoSanXuatSPs">
-            <EntityTypeMapping TypeName="DataModel.CoSoSanXuatSP">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.CoSoSanXuatSP">
               <MappingFragment StoreEntitySet="CoSoSanXuatSP">
                 <ScalarProperty Name="MaSX" ColumnName="MaSX" />
                 <ScalarProperty Name="TenSX" ColumnName="TenSX" />
@@ -1836,7 +1836,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DaiLyBanThuocs">
-            <EntityTypeMapping TypeName="DataModel.DaiLyBanThuoc">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.DaiLyBanThuoc">
               <MappingFragment StoreEntitySet="DaiLyBanThuoc">
                 <ScalarProperty Name="MaDL" ColumnName="MaDL" />
                 <ScalarProperty Name="TenDL" ColumnName="TenDL" />
@@ -1847,7 +1847,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dichbenhs">
-            <EntityTypeMapping TypeName="DataModel.Dichbenh">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Dichbenh">
               <MappingFragment StoreEntitySet="Dichbenh">
                 <ScalarProperty Name="MaDB" ColumnName="MaDB" />
                 <ScalarProperty Name="TenDB" ColumnName="TenDB" />
@@ -1857,7 +1857,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DieuKienChanNuois">
-            <EntityTypeMapping TypeName="DataModel.DieuKienChanNuoi">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.DieuKienChanNuoi">
               <MappingFragment StoreEntitySet="DieuKienChanNuoi">
                 <ScalarProperty Name="MaDK" ColumnName="MaDK" />
                 <ScalarProperty Name="MotaDK" ColumnName="MotaDK" />
@@ -1865,7 +1865,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DongVats">
-            <EntityTypeMapping TypeName="DataModel.DongVat">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.DongVat">
               <MappingFragment StoreEntitySet="DongVat">
                 <ScalarProperty Name="MaDV" ColumnName="MaDV" />
                 <ScalarProperty Name="LoaiDV" ColumnName="LoaiDV" />
@@ -1873,7 +1873,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GiayChungNhans">
-            <EntityTypeMapping TypeName="DataModel.GiayChungNhan">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.GiayChungNhan">
               <MappingFragment StoreEntitySet="GiayChungNhan">
                 <ScalarProperty Name="MaGCN" ColumnName="MaGCN" />
                 <ScalarProperty Name="TenGCN" ColumnName="TenGCN" />
@@ -1883,7 +1883,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Huyens">
-            <EntityTypeMapping TypeName="DataModel.Huyen">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Huyen">
               <MappingFragment StoreEntitySet="Huyen">
                 <ScalarProperty Name="MaHuyen" ColumnName="MaHuyen" />
                 <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
@@ -1892,7 +1892,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KhuTamGius">
-            <EntityTypeMapping TypeName="DataModel.KhuTamGiu">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.KhuTamGiu">
               <MappingFragment StoreEntitySet="KhuTamGiu">
                 <ScalarProperty Name="MaKhu" ColumnName="MaKhu" />
                 <ScalarProperty Name="TenKhu" ColumnName="TenKhu" />
@@ -1904,7 +1904,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiCoSoes">
-            <EntityTypeMapping TypeName="DataModel.LoaiCoSo">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.LoaiCoSo">
               <MappingFragment StoreEntitySet="LoaiCoSo">
                 <ScalarProperty Name="MaLCS" ColumnName="MaLCS" />
                 <ScalarProperty Name="TenLCS" ColumnName="TenLCS" />
@@ -1912,7 +1912,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nguoi_dung">
-            <EntityTypeMapping TypeName="DataModel.Nguoi_dung">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Nguoi_dung">
               <MappingFragment StoreEntitySet="Nguoi_dung">
                 <ScalarProperty Name="MaND" ColumnName="MaND" />
                 <ScalarProperty Name="TenDN" ColumnName="TenDN" />
@@ -1924,7 +1924,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SanPhamXuLyChatThais">
-            <EntityTypeMapping TypeName="DataModel.SanPhamXuLyChatThai">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.SanPhamXuLyChatThai">
               <MappingFragment StoreEntitySet="SanPhamXuLyChatThai">
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
@@ -1936,7 +1936,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ThongKeChanNuois">
-            <EntityTypeMapping TypeName="DataModel.ThongKeChanNuoi">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.ThongKeChanNuoi">
               <MappingFragment StoreEntitySet="ThongKeChanNuoi">
                 <ScalarProperty Name="MaTK" ColumnName="MaTK" />
                 <ScalarProperty Name="SoLuongCNNL" ColumnName="SoLuongCNNL" />
@@ -1945,7 +1945,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Thuocs">
-            <EntityTypeMapping TypeName="DataModel.Thuoc">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Thuoc">
               <MappingFragment StoreEntitySet="Thuoc">
                 <ScalarProperty Name="MaT" ColumnName="MaT" />
                 <ScalarProperty Name="TenT" ColumnName="TenT" />
@@ -1956,7 +1956,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tinhs">
-            <EntityTypeMapping TypeName="DataModel.Tinh">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Tinh">
               <MappingFragment StoreEntitySet="Tinh">
                 <ScalarProperty Name="MaTinh" ColumnName="MaTinh" />
                 <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
@@ -1964,7 +1964,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ToChucCaNhans">
-            <EntityTypeMapping TypeName="DataModel.ToChucCaNhan">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.ToChucCaNhan">
               <MappingFragment StoreEntitySet="ToChucCaNhan">
                 <ScalarProperty Name="MaTCCN" ColumnName="MaTCCN" />
                 <ScalarProperty Name="TenTCCN" ColumnName="TenTCCN" />
@@ -1974,7 +1974,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VungAnToans">
-            <EntityTypeMapping TypeName="DataModel.VungAnToan">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.VungAnToan">
               <MappingFragment StoreEntitySet="VungAnToan">
                 <ScalarProperty Name="MaVAT" ColumnName="MaVAT" />
                 <ScalarProperty Name="TenVAT" ColumnName="TenVAT" />
@@ -1983,7 +1983,7 @@ error 6004: The table 'Data.dbo.QuanLyDaiLy' is referenced by a relationship, bu
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Xas">
-            <EntityTypeMapping TypeName="DataModel.Xa">
+            <EntityTypeMapping TypeName="KyThuatPhanMemUngDungModel.Xa">
               <MappingFragment StoreEntitySet="Xa">
                 <ScalarProperty Name="MaXa" ColumnName="MaXa" />
                 <ScalarProperty Name="TenXa" ColumnName="TenXa" />

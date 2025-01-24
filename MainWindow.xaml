@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen"
         Name="mainWindow"
         Title="Phần mềm quản lý chăn nuôi" Height="500" Width="900" 
-        WindowStyle="None" ResizeMode="NoResize">
+        WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -35,31 +35,30 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image Source="Image\MENU.jpg" Stretch="Fill"></Image>
-               
-                <StackPanel Grid.Row="1" >
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="10 0 0 0">
                     <StackPanel.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#a6deb7"></Setter>
                             <Setter Property="FontSize" Value="16"/>
                             <Setter Property="BorderThickness" Value="0"/>
                             <Setter Property="Height" Value="30"/>
-                            <Setter Property="Width" Value="200"/>
-                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Width" Value="230"/>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
+                                <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="Green"></Setter>
                                     <Setter Property="Height" Value="30"/>
-                                    <Setter Property="Width" Value="200"/>
+                                    <Setter Property="Width" Value="230"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Border x:Name="border"
                                                         Background="{TemplateBinding Background}"
                                                         VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
+                                                        HorizontalAlignment="Center"    
                                                         Height="30"
-                                                        Width="200">
+                                                        Width="230">
                                                     <ContentPresenter 
                                                         HorizontalAlignment="Center" 
                                                         VerticalAlignment="Center"/>
@@ -71,61 +70,111 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Resources>
-                    <Button Content="Trang chủ" 
+
+                    <Button Margin="0 10 0 0"
                             Command="{Binding ChangeViewCommand}" 
-                            CommandParameter="HomePage" 
-                            Margin="0 20 0 0"
-                            />
-                    <Button Content="Sản phẩm xử lý chất thải" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            CommandParameter="HomePage" >
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="Image\Home.png" Height="20" Width="20"  VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Trang chủ"  VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="XuLyChatThai" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Cơ sở sản xuất"
-                            Command="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\SanPhamXuLyChatThai.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Sản phẩm xử lý chất thải" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoXanXuat" 
-                            Margin="0 5 0 0"
-                            />
-                    <Button Content="Cơ sở khảo nghiệm" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\CoSoSanXuat.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Cơ sở sản xuất" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoKhaoNghiem" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Cơ sở Chăn Nuôi" 
-                            Command="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\CoSoKhaoNghiem.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Cơ sở khảo nghiệm" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoChanNuoi" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Cơ sở Chế Biến" 
-                            Command="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\Trang chủ backup.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Cơ sở chăn nuôi" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoCheBien" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Quản lý tạm giữ tiêu hủy" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\CoSoCheBien.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Cơ sở chế biến" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="TamGiuTieuHuy" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Đại lý bán thuốc" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\TamGiuVaTieuHuy.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Quản lý tạm giữ tiêu hủy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="DaiLyBanThuoc" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Cơ sở giết mổ" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\DaiLyBanThuoc.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Đại lý bán thuốc" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="CoSoGietMo" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Khu vực tiêu hủy" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\CoSoGietMo.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Cơ sở giết mổ" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="KhuVucTieuHuy" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Quản lý tổ chức và vùng" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\Tiêu hủy.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Khu vực tiêu hủy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="ToChucVaVung" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Quản lý động vật" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\ToChucCaNhan.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Quản lý tổ chức và vùng" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="QuanLyDongVat" 
-                            Margin="0 5 0 0"/>
-                    <Button Content="Quản lý dịch" 
-                            Command ="{Binding ChangeViewCommand}" 
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\Trang trí.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Quản lý động vật" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command ="{Binding ChangeViewCommand}" 
                             CommandParameter="QuanLyDich" 
-                            Margin="0 5 0 0"/>
-                   
+                            Margin="0 5 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Image\QuanLyDichBenh.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Margin="10 0 0 0" Text="Quản lý dịch" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
             <ContentControl Grid.Column="1" Content="{Binding CurrentView}"/>

@@ -37,7 +37,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="/Image/Nền user.png" Stretch="Fill"></Image>
+        <Image Source="/Image/BackgroundSPXLCT.png" Stretch="Fill" Opacity="0.5"></Image>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -140,9 +140,9 @@
                 <ListView ItemsSource="{Binding XLCTlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" BorderThickness="0" Background="Transparent">
                     <ListView.Resources>
                         <Style TargetType="GridViewColumnHeader">
-                            <Setter Property="Background" Value="LightGreen" />
+                            <Setter Property="Background" Value="Transparent"    />
                             <Setter Property="Foreground" Value="Black" />
-                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontWeight" Value="ExtraBold" />
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
                         </Style>
                     </ListView.Resources>
@@ -150,6 +150,7 @@
                         <Style TargetType="ListViewItem">
                             <Setter Property="Foreground" Value="Black" />
                             <Setter Property="FontFamily" Value="Time New Roman"/>
+                            <Setter Property="FontWeight" Value="Bold" />
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         </Style>
                     </ListView.ItemContainerStyle>
@@ -167,9 +168,9 @@
                             </GridViewColumn>
                             <GridViewColumn Header="Tên Sản Phẩm" DisplayMemberBinding="{Binding TenSP}"/>
                             <GridViewColumn Header="Loại Sản Phẩm"  DisplayMemberBinding="{Binding LoaiSP}"/>
-                            <GridViewColumn Header="Hạn sử dụng" DisplayMemberBinding="{Binding HanSD}"/>
                             <GridViewColumn Header="Cơ sở sản xuất" DisplayMemberBinding="{Binding CoSoSanXuatSP.TenSX}"/>
                             <GridViewColumn Header="Cơ sở khảo nghiệm" DisplayMemberBinding="{Binding CoSoKhaoNghiemSP.TenKN}"/>
+                            <GridViewColumn Header="Hạn sử dụng" DisplayMemberBinding="{Binding HanSD}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

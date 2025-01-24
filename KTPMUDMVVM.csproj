@@ -370,6 +370,20 @@
     <Resource Include="Image\MENU.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\CoSoCheBien.png" />
+    <Resource Include="Image\CoSoGietMo.png" />
+    <Resource Include="Image\CoSoKhaoNghiem.png" />
+    <Resource Include="Image\CoSoSanXuat.png" />
+    <Resource Include="Image\DaiLyBanThuoc.png" />
+    <Resource Include="Image\Home.png" />
+    <Resource Include="Image\QuanLyDichBenh.png" />
+    <Resource Include="Image\SanPhamXuLyChatThai.png" />
+    <Resource Include="Image\TamGiuVaTieuHuy.png" />
+    <Resource Include="Image\Thuoc.png" />
+    <Resource Include="Image\ToChucCaNhan.png" />
+    <Resource Include="Image\BackgroundSPXLCT.png" />
+    <Resource Include="Image\BackgroundCSKN.png" />
+    <Resource Include="Image\BackgroundCSKN2.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
