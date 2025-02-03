@@ -6,76 +6,89 @@
              xmlns:local="clr-namespace:KTPMUDMVVM.Views"
              mc:Ignorable="d" 
              DataContext="TCVVM"
-             d:DesignHeight="450" d:DesignWidth="800" Background="Coral">
-    <Grid  Background="AntiqueWhite">
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#a6deb7"></Setter>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Green"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            Height="50"
+                            Width="80">
+                                    <ContentPresenter 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7"></Image>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition/>
-
             </Grid.RowDefinitions>
-            <Grid Grid.Row=" 0" Background="AliceBlue">
-                <TextBlock Text="Quản Lý Tổ Chức Và Cá Nhân" FontSize="30" FontWeight="Bold"></TextBlock>
+            <Grid Grid.Row="0">
+                <TextBlock Text="QUẢN LÝ TỔ CHỨC VÀ CÁ NHÂN" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" ></TextBlock>
             </Grid>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <StackPanel>
-                    <TextBlock Text="Loại Cơ Sở" Margin="5"/>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Width="250" Margin="0 0 100 0">
+                    <TextBlock Text="Loại cơ sở" Margin="5" FontSize="18" FontWeight="Bold"/>
                     <ComboBox 
-    ItemsSource="{Binding LoaiTCCNlist}" 
-    SelectedItem="{Binding LoaiTCCN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-    Margin="5" />
+                        ItemsSource="{Binding LoaiTCCNlist}" 
+                        SelectedItem="{Binding LoaiTCCN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        Margin="5" />
                 </StackPanel>
-            </Grid>
- 
-                <Grid Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="1">
-                        <Border Width="150" Height="25" CornerRadius="20" Background="Red" Margin="5 0">
-                            <Button Content="Tim Kiem" Background="Red" 
-    FontSize="10" VerticalAlignment="Stretch"
-    HorizontalAlignment="Stretch"
-    Margin="5 " BorderThickness="0"
-    Command="{Binding SearchCommand}">
-
-                            </Button>
-                        </Border>
-                    </Grid>
-                    
-                </Grid>
-            <Grid Grid.Column="3">
-                <Border Width="150" Height="25" CornerRadius="20" Background="Red" Margin="5 0">
-                    <Button Content="Chi Tiet" Background="Red" 
-FontSize="10" VerticalAlignment="Stretch"
-HorizontalAlignment="Stretch"
-Margin="5 " BorderThickness="0"
-Command="{Binding DetailCommand}">
-
-                    </Button>
-                </Border>
-            </Grid>
-                
+                <Button Content = "Tìm kiếm" Background="Green"
+                        FontSize="16" VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        BorderThickness="0" Height="50"
+                        Command="{Binding SearchCommand}">
+                </Button>
+            </StackPanel>
+            <Border Grid.Row="2" CornerRadius="20"  Background="Transparent" BorderBrush="Black" BorderThickness="3"  Height="400" Width="900" Padding="5">
+                <ListView Background="Transparent" BorderThickness="0" ItemsSource="{Binding TCCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.Resources>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontFamily" Value="Time New Roman"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Tên tổ chức - Cá nhân" Width="500" DisplayMemberBinding="{Binding TenTCCN}"></GridViewColumn>
+                            <GridViewColumn Header="Loại cơ sở " Width="300" DisplayMemberBinding="{Binding LoaiTCCN}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
         </Grid>
-            <Grid Grid.Row=" 2">
-                <StackPanel>
-                    <ListView Background="LightBlue" ItemsSource="{Binding TCCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Tên tổ chức Cá nhân" Width="500" DisplayMemberBinding="{Binding TenTCCN}"></GridViewColumn>
-                                <GridViewColumn Header="LoaiCoSo " Width="300" DisplayMemberBinding="{Binding LoaiTCCN}"></GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </StackPanel>
-            </Grid>
-        </Grid>
+    </Grid>
+</UserControl>
 
-    </UserControl>

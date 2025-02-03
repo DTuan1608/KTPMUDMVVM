@@ -37,9 +37,9 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="/Image/BackgroundCSKN2.png" Height="100" Width="100" Opacity="0.7" ></Image>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7" ></Image>
         <Grid>
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions>   
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="200"/>
                 <RowDefinition Height="50"/>

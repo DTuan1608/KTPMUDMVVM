@@ -32,7 +32,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="/Image/Nền user.png" Stretch="Fill"></Image>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7"></Image>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -53,15 +53,21 @@
                 <Grid Grid.Column="0">
                     <StackPanel Margin="70 0 0 0">
                         <Grid Margin="0 10 0 0">
-                            <TextBlock Text="Mã cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <TextBlock Text="Mã cơ sở:" FontSize="16" Foreground="Black" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
                                 <TextBox Text="{Binding MaCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                         <Grid Margin="0 20 0 0">
-                            <TextBlock Text="Tên cơ sở:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <TextBlock Text="Tên cơ sở:" FontSize="16" Foreground="Black" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
                                 <TextBox Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Loại động vật:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding DongVat.LoaiDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                     </StackPanel>
@@ -80,7 +86,12 @@
                                 <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
-                        
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Số lượng:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding SoLuongDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -120,7 +131,7 @@
                 <ListView Background="Transparent" ItemsSource="{Binding CSCNlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" BorderThickness="0">
                     <ListView.Resources>
                         <Style TargetType="GridViewColumnHeader">
-                            <Setter Property="Background" Value="LightGreen" />
+                            <Setter Property="Background" Value="Transparent" />
                             <Setter Property="Foreground" Value="Black" />
                             <Setter Property="FontWeight" Value="Bold" />
                             <Setter Property="HorizontalContentAlignment" Value="Center" />

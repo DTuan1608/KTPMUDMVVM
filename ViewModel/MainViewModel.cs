@@ -85,10 +85,10 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new HomePage();
                     break;
                 case "CoSoChanNuoi":
-                    CurrentView = new CoSoChanNuoi();
+                    CurrentView = new KTPMUDMVVM.Views.CoSoChanNuoi();
                     break;
                 case "CoSoCheBien":
-                    CurrentView = new CoSoCheBien();
+                    CurrentView = new KTPMUDMVVM.Views.CoSoCheBien();
                     break;
                 case "TamGiuTieuHuy":
                     CurrentView = new TamGiuTieuHuy();
@@ -103,10 +103,10 @@ namespace KTPMUDMVVM.ViewModel
                     CurrentView = new CoSoKhaoNghiem();
                     break;
                 case "DaiLyBanThuoc":
-                    CurrentView = new DaiLyBanThuoc();
+                    CurrentView = new KTPMUDMVVM.Views.DaiLyBanThuoc();
                     break;
                 case "CoSoGietMo":
-                    CurrentView = new CoSoGietMo();
+                    CurrentView = new KTPMUDMVVM.Views.CoSoGietMo();
                     break;
                 case "ToChucVaVung":
                     CurrentView = new ToChucVaVung();

@@ -7,28 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.Model
+namespace KTPMUDMVVM.ViewModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ToChucCaNhan
+    public partial class DongVat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ToChucCaNhan()
+        public DongVat()
         {
             this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
             this.CoSoCheBiens = new HashSet<CoSoCheBien>();
+            this.KhuTamGius = new HashSet<KhuTamGiu>();
+            this.Thuocs = new HashSet<Thuoc>();
         }
     
-        public string MaTCCN { get; set; }
-        public string TenTCCN { get; set; }
-        public string LoaiTCCN { get; set; }
-        public string SoDT { get; set; }
+        public string MaDV { get; set; }
+        public string LoaiDV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KhuTamGiu> KhuTamGius { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Thuoc> Thuocs { get; set; }
     }
 }

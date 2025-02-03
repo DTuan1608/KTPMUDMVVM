@@ -38,7 +38,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="/Image/Nền user.png" Stretch="Fill"></Image>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7"></Image>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -46,7 +46,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Cơ sở sản xuất sản phẩm" 
+            <TextBlock Text="QUẢN LÝ CƠ SỞ SẢN XUẤT" 
                FontSize="20" FontWeight="Bold"
                FontFamily="Time New Roman"
                VerticalAlignment="Center"

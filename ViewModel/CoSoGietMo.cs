@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.Model
+namespace KTPMUDMVVM.ViewModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DaiLyBanThuoc
+    public partial class CoSoGietMo
     {
-        public string MaDL { get; set; }
-        public string TenDL { get; set; }
+        public string MaGM { get; set; }
+        public string TenGM { get; set; }
         public string SoDT { get; set; }
-        public string MaXa { get; set; }
         public string MaLCS { get; set; }
+        public string MaXa { get; set; }
     
         public virtual LoaiCoSo LoaiCoSo { get; set; }
         public virtual Xa Xa { get; set; }

@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.Model
+namespace KTPMUDMVVM.ViewModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CoSoKhaoNghiemSP
+    public partial class CoSoSanXuatSP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CoSoKhaoNghiemSP()
+        public CoSoSanXuatSP()
         {
             this.SanPhamXuLyChatThais = new HashSet<SanPhamXuLyChatThai>();
         }
     
-        public string MaKN { get; set; }
-        public string TenKN { get; set; }
+        public string MaSX { get; set; }
+        public string TenSX { get; set; }
         public string SoDT { get; set; }
         public string MaXa { get; set; }
         public string MaLCS { get; set; }

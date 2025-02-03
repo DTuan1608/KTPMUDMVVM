@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.Model
+namespace KTPMUDMVVM.ViewModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Huyen
+    public partial class Tinh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Huyen()
+        public Tinh()
         {
-            this.Xas = new HashSet<Xa>();
+            this.Huyens = new HashSet<Huyen>();
         }
     
-        public string MaHuyen { get; set; }
-        public string TenHuyen { get; set; }
         public string MaTinh { get; set; }
+        public string TenTinh { get; set; }
     
-        public virtual Tinh Tinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Xa> Xas { get; set; }
+        public virtual ICollection<Huyen> Huyens { get; set; }
     }
 }

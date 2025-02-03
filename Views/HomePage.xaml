@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="SeaShell"
              DataContext="HPVM">
-    <Grid Background="MediumPurple">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="300" />
@@ -28,26 +28,31 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Border CornerRadius="20" Background="Green" Margin="5">
+                <Border CornerRadius="20" Background="Black" Margin="5">
                     <liveCharts:CartesianChart x:Name="chart" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Zoom="Xy" Pan="Xy">
                         <liveCharts:CartesianChart.Series>
                             <liveCharts:RowSeries Title="CSCN" Values="{Binding CSCNValues}" Fill="Green" Stroke="DarkGreen"/>
                             <liveCharts:RowSeries Title="CSSX" Values="{Binding CSSXValues}" Fill="RoyalBlue" Stroke="DarkBlue"/>
                             <liveCharts:RowSeries Title="CSCB" Values="{Binding CSCBValues}" Fill="Orange" Stroke="DarkOrange"/>
-                            <liveCharts:RowSeries Title="CSGM" Values="{Binding CSGMValues}"/>
-                            <liveCharts:RowSeries Title="CSKN" Values="{Binding CSKNValues}"/>
-                            <liveCharts:RowSeries Title="DLBT" Values="{Binding DLBTVal}"/>
+                            <liveCharts:RowSeries Title="CSGM" Values="{Binding CSGMValues}" Fill="LightGreen" Stroke="LightGreen"/>
+                            <liveCharts:RowSeries Title="CSKN" Values="{Binding CSKNValues}" Fill="LightBlue" Stroke="LightBlue" />
+                            <liveCharts:RowSeries Title="DLBT" Values="{Binding DLBTVal}" Fill="LightCoral" Stroke="LightCoral"/>
                         </liveCharts:CartesianChart.Series>
 
                         <liveCharts:CartesianChart.AxisY>
-                            <liveCharts:Axis Title="Số lượng các cơ sở">
+                            <liveCharts:Axis Title="Loại cơ sở" FontWeight="Bold" Foreground="White">
                                 <liveCharts:Axis.Labels>
-                                <Binding Path="AxisLabels"/>
-                            </liveCharts:Axis.Labels>
+                                    <Binding Path="AxisLabels"/>
+                                </liveCharts:Axis.Labels>
                             </liveCharts:Axis>
-                            
                         </liveCharts:CartesianChart.AxisY>
-                        
+                        <liveCharts:CartesianChart.AxisX>
+                            <liveCharts:Axis Title="Số lượng các cơ sở" FontWeight="Bold" Foreground="White">
+                                <liveCharts:Axis.Labels>
+                                    <Binding Path="AxisLabels"/>
+                                </liveCharts:Axis.Labels>
+                            </liveCharts:Axis>
+                        </liveCharts:CartesianChart.AxisX>
                     </liveCharts:CartesianChart>
 
                 </Border>

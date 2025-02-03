@@ -37,7 +37,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="/Image/Nền user.png" Stretch="Fill"></Image>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7"></Image>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>

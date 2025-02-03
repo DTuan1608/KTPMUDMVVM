@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.Model
+namespace KTPMUDMVVM.ViewModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Nguoi_dung
+    public partial class Thuoc
     {
-        public string MaND { get; set; }
-        public string TenDN { get; set; }
-        public string MatKhau { get; set; }
-        public string Chuc_vu { get; set; }
-        public string TenHienThi { get; set; }
-        public string MaXa { get; set; }
+        public string MaT { get; set; }
+        public string TenT { get; set; }
+        public string MaDV { get; set; }
+        public Nullable<System.DateTime> NgaySX { get; set; }
+        public Nullable<System.DateTime> HanSD { get; set; }
     
-        public virtual Xa Xa { get; set; }
+        public virtual DongVat DongVat { get; set; }
     }
 }

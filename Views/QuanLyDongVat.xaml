@@ -6,76 +6,95 @@
              xmlns:local="clr-namespace:KTPMUDMVVM.Views"
              mc:Ignorable="d" 
              DataContext="QLDVVM"
-                      d:DesignHeight="450" d:DesignWidth="800" Background="Coral">
-    <Grid Background="AntiqueWhite">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#a6deb7"></Setter>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Green"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" Background="{TemplateBinding Background}" Height="50" Width="80">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Image Source="/Image/Nền user.png" Stretch="Fill" Opacity="0.7"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <!-- Header -->
-        <Grid Grid.Row="0" Background="AliceBlue">
-            <TextBlock Text="QLDV" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </Grid>
-
-        <!-- Filter Section -->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Loại Cơ Sở -->
-            <Grid Grid.Column="0">
-                <StackPanel>
-                    <TextBlock Text="Loại Cơ Sở" Margin="5"/>
-                    <ComboBox 
-                        SelectedValue="{Binding LoaiCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                        ItemsSource="{Binding LoaiCSlist}" 
-                        Margin="5" />
+            <Grid Grid.Row="0">
+                <TextBlock Text="QUẢN LÝ ĐỘNG VẬT" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Grid>
+           
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Width="250" Margin="0 0 10 0">
+                        <TextBlock Text="Loại Cơ Sở" Margin="5"/>
+                        <ComboBox 
+                            SelectedValue="{Binding LoaiCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            ItemsSource="{Binding LoaiCSlist}" 
+                            Margin="5" />
+                    </StackPanel>
+                    <StackPanel Width="250"  Margin="0 0 10 0">
+                        <TextBlock Text="Xã" Margin="5" />
+                        <ComboBox 
+                            SelectedItem="{Binding TenXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                            DisplayMemberPath="TenXa"
+                            ItemsSource="{Binding TenXalist}" 
+                            Margin="5" />
+                    </StackPanel>
+                    <StackPanel Width="250"  Margin="0 0 10 0">
+                        <TextBlock Text="Tên Cơ Sở" Margin="5"/>
+                        <ComboBox 
+                             SelectedValue="{Binding TenCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                             ItemsSource="{Binding TenCSlist}" 
+                             Margin="5" />
+                    </StackPanel>
+                    <Button Content="Tìm Kiếm" Background="Green" 
+                            FontSize="14" VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Height="40"
+                             Margin="0 0 10 0"
+                            Command="{Binding SearchCommand}">
+                    </Button>
                 </StackPanel>
             </Grid>
 
-            <!-- Xã -->
-            <Grid Grid.Column="1">
-                <StackPanel>
-                    <TextBlock Text="Xã" Margin="5"/>
-                    <ComboBox 
-                        SelectedItem="{Binding TenXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                        DisplayMemberPath="TenXa"
-                        ItemsSource="{Binding TenXalist}" 
-                        Margin="5" />
-                </StackPanel>
-            </Grid>
-
-            <!-- Tên Cơ Sở -->
-            <Grid Grid.Column="2">
-                <StackPanel>
-                    <TextBlock Text="Tên Cơ Sở" Margin="5"/>
-                    <ComboBox 
-                        SelectedValue="{Binding TenCS, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                        ItemsSource="{Binding TenCSlist}" 
-                        Margin="5" />
-                </StackPanel>
-            </Grid>
-
-            <!-- Tìm Kiếm -->
-            <Grid Grid.Column="3">
-                <Button Content="Tìm Kiếm" Background="Red" 
-                        FontSize="10" VerticalAlignment="Center"
-                        HorizontalAlignment="Stretch"
-                        Margin="5"
-                        Command="{Binding SearchCommand}" />
-            </Grid>
-        </Grid>
-
-        <!-- Data Display Section -->
-        <Grid Grid.Row="2">
-            <StackPanel>
-                <ListView Background="LightBlue" ItemsSource="{Binding QLDVlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+            <Border Grid.Row="2" CornerRadius="20"  Background="Transparent" BorderBrush="Black" BorderThickness="3"  Height="400" Width="900" Padding="5">
+                <ListView Background="Transparent" BorderThickness="0" ItemsSource="{Binding QLDVlist}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView.Resources>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontFamily" Value="Time New Roman"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Tên Động Vật" Width="500" DisplayMemberBinding="{Binding LoaiDV}"></GridViewColumn>
@@ -83,7 +102,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-            </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 

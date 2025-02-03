@@ -37,7 +37,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Image Source="\Image\Nền user.png" Stretch="UniformToFill"></Image>
+        <Image Source="\Image\Nền user.png" Stretch="UniformToFill" Opacity="0.7"></Image>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -63,9 +63,14 @@
                                 <TextBox Text="{Binding MaKhu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
-
                         <Grid Margin="0 20 0 0">
                             <TextBlock Text="Tên Khu:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding TenKhu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Loại động vật:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
                                 <TextBox Text="{Binding TenKhu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
@@ -76,12 +81,19 @@
                     <StackPanel>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Text="Mã Xã:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                            <Border Width="300" Margin="10 0 10 0" CornerRadius="20" Background="White" BorderBrush="Black" BorderThickness="2">
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White" BorderBrush="Black" BorderThickness="2">
                                 <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                         <Grid Margin="0 20 0 0">
-                            <TextBlock Text="Mã Dịch Vụ" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <TextBlock Text="Hạn sử dụng:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
+                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding MaDv, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
+                                </TextBox>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="0 20 0 0">
+                            <TextBlock Text="Số lượng động vật:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
                                 <TextBox Text="{Binding MaDv, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0">
                                 </TextBox>
