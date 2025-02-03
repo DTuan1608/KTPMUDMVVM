@@ -106,44 +106,53 @@ namespace KTPMUDMVVM.ViewModel
             LoadData();
 
             AddCommand = new RelayCommand<object>(
-                (p) =>
-                {
-                    if (DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN) == true)
-                    {
-                        return false;
-                    }
-                    return !string.IsNullOrEmpty(MaCN) &&
-                           DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN);
-                },
-                (p) =>
-                {
-                    if (MaXa == null || MaCN == null || Ten == null || SoDT == null)
-                    {
-                        MessageBox.Show("Chua dien du thong tin can thiet!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                    var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
-                    if (!existingMaXa)
-                    {
-                        MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                        MaXa = null;
-                        return;
-                    }
+    (p) =>
+    {
+        // Kiểm tra nếu MaCN không rỗng và tồn tại trong cơ sở dữ liệu
+        return !string.IsNullOrEmpty(MaCN) &&
+               !DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN);
+    },
+    (p) =>
+    {
+        // Kiểm tra các trường đầu vào nếu chúng không phải null hoặc rỗng
+        if (string.IsNullOrEmpty(MaXa) || string.IsNullOrEmpty(MaCN) || string.IsNullOrEmpty(Ten) || string.IsNullOrEmpty(SoDT))
+        {
+            MessageBox.Show("Chưa điền đủ thông tin cần thiết!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
 
-                    var unit = new CoSoChanNuoi
-                    {
-                        MaCN = MaCN,
-                        Ten = Ten,
-                        MaXa = MaXa,
-                        SoDT = SoDT
-                    };
+        // Kiểm tra mã xã có tồn tại trong hệ thống không
+        var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
+        if (!existingMaXa)
+        {
+            MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            MaXa = null; // Reset MaXa
+            return;
+        }
 
-                    DataProvide.Ins.DB.CoSoChanNuois.Add(unit);
-                    DataProvide.Ins.DB.SaveChanges();
-                    CSCNlist.Add(unit);
-                    ClearInputFields();
-                    OnPropertyChangedEventHandler();
-                });
+        // Tạo đối tượng mới để thêm vào cơ sở dữ liệu
+        var unit = new CoSoChanNuoi
+        {
+            MaCN = MaCN,
+            Ten = Ten,
+            MaXa = MaXa,
+            SoDT = SoDT
+        };
+
+        // Thêm đối tượng vào cơ sở dữ liệu và lưu
+        DataProvide.Ins.DB.CoSoChanNuois.Add(unit);
+        DataProvide.Ins.DB.SaveChanges();
+
+        // Thêm đối tượng vào danh sách hiện tại trong ViewModel
+        CSCNlist.Add(unit);
+
+        // Xóa dữ liệu đầu vào (nếu cần)
+        ClearInputFields();
+
+        // Cập nhật thông báo thay đổi (nếu cần thiết)
+        OnPropertyChangedEventHandler();
+    });
+
 
             EditCommand = new RelayCommand<object>(
      (p) =>

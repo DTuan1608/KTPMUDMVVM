@@ -98,10 +98,10 @@ namespace KTPMUDMVVM.ViewModel
             AddCommand = new RelayCommand<object>(
                 (p) =>
                 {
-                    if (DataProvide.Ins.DB.KhuTamGius.Any(x => x.MaKhu == MaKhu) == true)
-                    {
-                        return false;
-                    }
+                    //if (DataProvide.Ins.DB.KhuTamGius.Any(x => x.MaKhu == MaKhu) == true)
+                    //{
+                    //    return false;
+                    //}
                     return !string.IsNullOrEmpty(MaKhu) &&
                            DataProvide.Ins.DB.KhuTamGius.Any(x => x.MaKhu == MaKhu);
                 },

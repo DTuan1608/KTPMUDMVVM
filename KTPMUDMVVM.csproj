@@ -41,6 +41,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
@@ -164,8 +170,10 @@
     <Compile Include="ViewModel\CSCBViewModel.cs" />
     <Compile Include="ViewModel\CSCNviewmodel.cs" />
     <Compile Include="ViewModel\CSGMViewModel.cs" />
+    <Compile Include="ViewModel\CSSXSPViewModel.cs" />
     <Compile Include="ViewModel\DLBTViewModel.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
+    <Compile Include="ViewModel\HPViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\QLDBViewModel.cs" />
     <Compile Include="ViewModel\QLDVViewModel.cs" />
@@ -185,8 +193,8 @@
       <DependentUpon>CoSoKhaoNghiem.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CSKNViewModel.cs" />
-    <Compile Include="Views\CoSoSanXuat.xaml.cs">
-      <DependentUpon>CoSoSanXuat.xaml</DependentUpon>
+    <Compile Include="Views\CoSoSanXuatSanPham.xaml.cs">
+      <DependentUpon>CoSoSanXuatSanPham.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DaiLyBanThuoc.xaml.cs">
       <DependentUpon>DaiLyBanThuoc.xaml</DependentUpon>
@@ -240,7 +248,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CoSoSanXuat.xaml">
+    <Page Include="Views\CoSoSanXuatSanPham.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -384,6 +392,8 @@
     <Resource Include="Image\BackgroundSPXLCT.png" />
     <Resource Include="Image\BackgroundCSKN.png" />
     <Resource Include="Image\BackgroundCSKN2.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

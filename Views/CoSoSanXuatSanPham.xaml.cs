@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KTPMUDMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace KTPMUDMVVM.Views
 {
     /// <summary>
-    /// Interaction logic for CoSoSanXuat.xaml
+    /// Interaction logic for CoSoSanXuatSanPham.xaml
     /// </summary>
-    public partial class CoSoSanXuat : UserControl
+    public partial class CoSoSanXuatSanPham : UserControl
     {
-        public CoSoSanXuat()
+        public CoSoSanXuatSanPham()
         {
             InitializeComponent();
+            this.DataContext = new CSSXSPViewModel();
         }
     }
 }

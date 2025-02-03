@@ -112,10 +112,10 @@ namespace KTPMUDMVVM.ViewModel
             AddCommand = new RelayCommand<object>(
                     (p) =>
                     {
-                        if (DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == MaDL) == true)
-                        {
-                            return false;
-                        }
+                        //if (DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == MaDL) == true)
+                        //{
+                        //    return false;
+                        //}
                         return !string.IsNullOrEmpty(MaDL) && DataProvide.Ins.DB.DaiLyBanThuocs.Any(x => x.MaDL == SelectedItem.MaDL);
                     },
                     (p) =>

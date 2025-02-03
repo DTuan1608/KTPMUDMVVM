@@ -102,10 +102,6 @@ namespace KTPMUDMVVM.ViewModel
             AddCommand = new RelayCommand<object>(
                     (p) =>
                     {
-                        if (DataProvide.Ins.DB.CoSoKhaoNghiemSPs.Any(x => x.MaKN == MaKN) == true)
-                        {
-                            return false;
-                        }
                         return !string.IsNullOrEmpty(MaKN) && DataProvide.Ins.DB.CoSoKhaoNghiemSPs.Any(x => x.MaKN == SelectedItem.MaKN);
                     },
                     (p) =>
