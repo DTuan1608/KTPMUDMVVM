@@ -100,10 +100,6 @@ namespace KTPMUDMVVM.ViewModel
         AddCommand = new RelayCommand<object>(
                 (p) =>
                 {
-                    if (DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == MaCB) == true)
-                    {
-                        return false;
-                    }
                     return !string.IsNullOrEmpty(MaCB) && DataProvide.Ins.DB.CoSoCheBiens.Any(x => x.MaCB == SelectedItem.MaCB);
                 },
                 (p) =>

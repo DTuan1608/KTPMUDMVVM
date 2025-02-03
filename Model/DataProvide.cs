@@ -11,11 +11,11 @@ namespace KTPMUDMVVM.Model
         private static DataProvide _ins;
         public static DataProvide Ins { get { if (_ins == null) _ins = new DataProvide(); return _ins; }
             set { _ins = value; } }
-        public KyThuatPhanMemUngDungEntities3 DB { get; set; }
+        public DataEntities DB { get; set; }
          
         private DataProvide()
         {
-            DB = new KyThuatPhanMemUngDungEntities3();
+            DB = new DataEntities();
         }
     }
 }
