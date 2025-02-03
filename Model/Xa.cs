@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LoaiCoSo
+    public partial class Xa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LoaiCoSo()
+        public Xa()
         {
             this.ChiCucThuYs = new HashSet<ChiCucThuY>();
             this.CoSoCapGCNs = new HashSet<CoSoCapGCN>();
@@ -25,10 +25,13 @@ namespace KTPMUDMVVM.ViewModel
             this.CoSoKhaoNghiemSPs = new HashSet<CoSoKhaoNghiemSP>();
             this.CoSoSanXuatSPs = new HashSet<CoSoSanXuatSP>();
             this.DaiLyBanThuocs = new HashSet<DaiLyBanThuoc>();
+            this.KhuTamGius = new HashSet<KhuTamGiu>();
+            this.Nguoi_dung = new HashSet<Nguoi_dung>();
         }
     
-        public string MaLCS { get; set; }
-        public string TenLCS { get; set; }
+        public string MaXa { get; set; }
+        public string TenXa { get; set; }
+        public string MaHuyen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiCucThuY> ChiCucThuYs { get; set; }
@@ -46,5 +49,10 @@ namespace KTPMUDMVVM.ViewModel
         public virtual ICollection<CoSoSanXuatSP> CoSoSanXuatSPs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DaiLyBanThuoc> DaiLyBanThuocs { get; set; }
+        public virtual Huyen Huyen { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KhuTamGiu> KhuTamGius { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nguoi_dung> Nguoi_dung { get; set; }
     }
 }

@@ -7,28 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CoSoKhaoNghiemSP
+    public partial class DaiLyBanThuoc
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CoSoKhaoNghiemSP()
-        {
-            this.SanPhamXuLyChatThais = new HashSet<SanPhamXuLyChatThai>();
-        }
-    
-        public string MaKN { get; set; }
-        public string TenKN { get; set; }
+        public string MaDL { get; set; }
+        public string TenDL { get; set; }
         public string SoDT { get; set; }
         public string MaXa { get; set; }
         public string MaLCS { get; set; }
     
-        public virtual Xa Xa { get; set; }
         public virtual LoaiCoSo LoaiCoSo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SanPhamXuLyChatThai> SanPhamXuLyChatThais { get; set; }
+        public virtual Xa Xa { get; set; }
     }
 }

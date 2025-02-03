@@ -67,10 +67,22 @@ namespace KTPMUDMVVM.ViewModel
         private string _Dongvat;
         public string Dongvat
         {
-            get=> _Dongvat;
+            get => _Dongvat;
             set
             {
                 _Dongvat = value;
+                OnPropertyChangedEventHandler();
+            }
+        }
+
+        private int _SoluongDV;
+        public int SoluongDV
+        {
+            get => _SoluongDV;
+            set
+            {
+                _SoluongDV = value;
+                OnPropertyChangedEventHandler();
             }
         }
 
@@ -86,11 +98,12 @@ namespace KTPMUDMVVM.ViewModel
                     OnPropertyChangedEventHandler();
                     if (SelectedItem != null)
                     {
-                        
                         MaCN = SelectedItem.MaCN;
                         SoDT = SelectedItem.SoDT;
                         MaXa = SelectedItem.MaXa;
                         Ten = SelectedItem.Ten;
+                        Dongvat = SelectedItem.DongVat?.MaDV ?? "Không có thông tin"; // Default if null
+                        SoluongDV = SelectedItem.SoLuongDV ?? 0;
                     }
                 }
             }
@@ -103,152 +116,127 @@ namespace KTPMUDMVVM.ViewModel
 
         public CSCNviewmodel()
         {
+            Dongvat = string.Empty;
+            SoluongDV = 0;
             LoadData();
 
             AddCommand = new RelayCommand<object>(
-    (p) =>
-    {
-        // Kiểm tra nếu MaCN không rỗng và tồn tại trong cơ sở dữ liệu
-        return !string.IsNullOrEmpty(MaCN) &&
-               !DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN);
-    },
-    (p) =>
-    {
-        // Kiểm tra các trường đầu vào nếu chúng không phải null hoặc rỗng
-        if (string.IsNullOrEmpty(MaXa) || string.IsNullOrEmpty(MaCN) || string.IsNullOrEmpty(Ten) || string.IsNullOrEmpty(SoDT))
-        {
-            MessageBox.Show("Chưa điền đủ thông tin cần thiết!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-            return;
-        }
-
-        // Kiểm tra mã xã có tồn tại trong hệ thống không
-        var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
-        if (!existingMaXa)
-        {
-            MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-            MaXa = null; // Reset MaXa
-            return;
-        }
-
-        // Tạo đối tượng mới để thêm vào cơ sở dữ liệu
-        var unit = new CoSoChanNuoi
-        {
-            MaCN = MaCN,
-            Ten = Ten,
-            MaXa = MaXa,
-            SoDT = SoDT
-        };
-
-        // Thêm đối tượng vào cơ sở dữ liệu và lưu
-        DataProvide.Ins.DB.CoSoChanNuois.Add(unit);
-        DataProvide.Ins.DB.SaveChanges();
-
-        // Thêm đối tượng vào danh sách hiện tại trong ViewModel
-        CSCNlist.Add(unit);
-
-        // Xóa dữ liệu đầu vào (nếu cần)
-        ClearInputFields();
-
-        // Cập nhật thông báo thay đổi (nếu cần thiết)
-        OnPropertyChangedEventHandler();
-    });
-
-
-            EditCommand = new RelayCommand<object>(
-     (p) =>
-     {
-
-         return SelectedItem != null &&
-                !string.IsNullOrEmpty(MaCN) &&
-                DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN);
-     },
-     (p) =>
-     {
-
-         var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
-         if (!existingMaXa)
-         {
-             MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-             MaXa = null;
-             return;
-         }
-
-         var unit = DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN);
-         if (unit != null)
-         {
-
-             unit.MaCN = MaCN;
-             unit.Ten = Ten;
-             unit.MaXa = MaXa;
-             unit.SoDT = SoDT;
-
-
-             DataProvide.Ins.DB.SaveChanges();
-
-
-             SelectedItem.MaCN = MaCN;
-             SelectedItem.Ten = Ten;
-             SelectedItem.MaXa = MaXa;
-             SelectedItem.SoDT = SoDT;
-
-
-             OnPropertyChangedEventHandler(nameof(CSCNlist));
-             MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-         }
-         else
-         {
-             MessageBox.Show("Không tìm thấy cơ sở chan nuoi này!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-         }
-     });
-
-
-            SearchCommand = new RelayCommand<object>(
                 (p) =>
                 {
-                    //if (DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN || x.Ten == Ten || x.MaXa == MaXa || x.SoDT == SoDT) == null || MaCN != null)
-                    //{
-
-                    //    return false;
-                    //}
-                    return true;
+                    return !string.IsNullOrEmpty(MaCN) &&
+                           !DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaCN == MaCN);
                 },
                 (p) =>
                 {
-                    if (MaCN == null || MaXa == null || Ten == null || SoDT == null)
+                    // Check for empty fields
+                    if (string.IsNullOrEmpty(MaXa) || string.IsNullOrEmpty(MaCN) || string.IsNullOrEmpty(Ten) || string.IsNullOrEmpty(SoDT) || string.IsNullOrEmpty(Dongvat))
                     {
-                        LoadData();
+                        MessageBox.Show("Chưa điền đủ thông tin cần thiết!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
                     }
-                    var results = DataProvide.Ins.DB.CoSoChanNuois.Where(x =>
-                   (string.IsNullOrEmpty(MaCN) || x.MaCN.Contains(MaCN)) &&
-                   (string.IsNullOrEmpty(Ten) || x.Ten.Contains(Ten)) &&
-                   (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
-                   (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)))
-                    .ToList();
-                    if (results != null)
+
+                    // Check if MaXa exists
+                    var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
+                    if (!existingMaXa)
                     {
+                        MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MaXa = null; // Reset MaXa
+                        return;
+                    }
 
+                    // Add new CoSoChanNuoi
+                    var unit = new CoSoChanNuoi
+                    {
+                        MaCN = MaCN,
+                        Ten = Ten,
+                        MaXa = MaXa,
+                        SoDT = SoDT,
+                        SoLuongDV = SoluongDV,
+                        DongVat = new DongVat { MaDV = Dongvat } // Assuming DongVat is an entity with MaDV
+                    };
 
-                        CSCNlist.Clear();
-                        foreach (var item in results)
-                        {
-                            CSCNlist.Add(item);
-                        }
+                    // Add to DB
+                    DataProvide.Ins.DB.CoSoChanNuois.Add(unit);
+                    DataProvide.Ins.DB.SaveChanges();
+
+                    // Add to ViewModel's list
+                    CSCNlist.Add(unit);
+
+                    // Clear fields
+                    ClearInputFields();
+                });
+
+            EditCommand = new RelayCommand<object>(
+                (p) =>
+                {
+                    return SelectedItem != null && !string.IsNullOrEmpty(MaCN);
+                },
+                (p) =>
+                {
+                    var existingMaXa = DataProvide.Ins.DB.CoSoChanNuois.Any(x => x.MaXa == MaXa);
+                    if (!existingMaXa)
+                    {
+                        MessageBox.Show("Mã xã không tồn tại trong hệ thống!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MaXa = null;
+                        return;
+                    }
+
+                    var unit = DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN);
+                    if (unit != null)
+                    {
+                        unit.MaCN = MaCN;
+                        unit.Ten = Ten;
+                        unit.MaXa = MaXa;
+                        unit.SoDT = SoDT;
+                        unit.DongVat = new DongVat { MaDV = Dongvat }; // Update DongVat
+                        unit.SoLuongDV = SoluongDV; // Update SoLuongDV
+
+                        DataProvide.Ins.DB.SaveChanges();
+
+                        // Update SelectedItem
+                        SelectedItem.MaCN = MaCN;
+                        SelectedItem.Ten = Ten;
+                        SelectedItem.MaXa = MaXa;
+                        SelectedItem.SoDT = SoDT;
+                        SelectedItem.DongVat = new DongVat { MaDV = Dongvat }; // Update DongVat in SelectedItem
+                        SelectedItem.SoLuongDV = SoluongDV;
+
+                        OnPropertyChangedEventHandler(nameof(CSCNlist));
+                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy Cơ sở thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Không tìm thấy cơ sở chăn nuôi này!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                });
+
+            SearchCommand = new RelayCommand<object>(
+                (p) => true,
+                (p) =>
+                {
+                    var results = DataProvide.Ins.DB.CoSoChanNuois.Where(x =>
+                        (string.IsNullOrEmpty(MaCN) || x.MaCN.Contains(MaCN)) &&
+                        (string.IsNullOrEmpty(Ten) || x.Ten.Contains(Ten)) &&
+                        (string.IsNullOrEmpty(MaXa) || x.MaXa.Contains(MaXa)) &&
+                        (string.IsNullOrEmpty(SoDT) || x.SoDT.Contains(SoDT)) &&
+                        (string.IsNullOrEmpty(Dongvat) || x.DongVat.MaDV.Contains(Dongvat)))
+                        .ToList();
+
+                    CSCNlist.Clear();
+                    foreach (var item in results)
+                    {
+                        CSCNlist.Add(item);
+                    }
+
+                    if (!results.Any())
+                    {
+                        MessageBox.Show("Không tìm thấy cơ sở chăn nuôi!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                         LoadData();
                     }
                 });
 
             DeleteCommand = new RelayCommand<object>(
-                (p) => {
-                    if (SelectedItem == null)
-                    {
-                        return false;
-                    }
-                    return true;
-                },
+                (p) => SelectedItem != null,
                 (p) =>
                 {
                     var unit = DataProvide.Ins.DB.CoSoChanNuois.SingleOrDefault(x => x.MaCN == MaCN);
@@ -265,37 +253,8 @@ namespace KTPMUDMVVM.ViewModel
 
         private void LoadData()
         {
-            CSCNlist = new ObservableCollection<CoSoChanNuoi>(
-                DataProvide.Ins.DB.CoSoChanNuois);
+            CSCNlist = new ObservableCollection<CoSoChanNuoi>(DataProvide.Ins.DB.CoSoChanNuois);
             OnPropertyChangedEventHandler();
-        }
-
-        private Xa FindXaByMaXa(string maXa)
-        {
-            try
-            {
-                // Kiểm tra nếu maXa không rỗng
-                if (string.IsNullOrEmpty(maXa))
-                {
-                    MessageBox.Show("Mã xã không hợp lệ.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return null;
-                }
-
-                // Tìm xã trong cơ sở dữ liệu
-                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == maXa);
-
-                if (xa == null)
-                {
-                    MessageBox.Show($"Không tìm thấy xã với Mã: {maXa}", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-                return xa;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
-            }
         }
 
         private void ClearInputFields()
@@ -304,6 +263,8 @@ namespace KTPMUDMVVM.ViewModel
             Ten = null;
             MaXa = null;
             SoDT = null;
+            Dongvat = string.Empty;
+            SoluongDV = 0;
             SelectedItem = null;
         }
     }

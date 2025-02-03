@@ -7,26 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DieuKienChanNuoi
+    public partial class CoSoCapGCN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DieuKienChanNuoi()
+        public CoSoCapGCN()
         {
-            this.CoSoChanNuois = new HashSet<CoSoChanNuoi>();
-            this.CoSoCheBiens = new HashSet<CoSoCheBien>();
+            this.GiayChungNhans = new HashSet<GiayChungNhan>();
         }
     
-        public string MaDK { get; set; }
-        public string MotaDK { get; set; }
+        public string MaCSGCN { get; set; }
+        public string TenCSGCN { get; set; }
+        public string SoDT { get; set; }
+        public string MaXa { get; set; }
+        public string MaLCS { get; set; }
     
+        public virtual Xa Xa { get; set; }
+        public virtual LoaiCoSo LoaiCoSo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoChanNuoi> CoSoChanNuois { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoCheBien> CoSoCheBiens { get; set; }
+        public virtual ICollection<GiayChungNhan> GiayChungNhans { get; set; }
     }
 }

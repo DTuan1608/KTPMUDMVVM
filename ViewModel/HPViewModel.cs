@@ -43,6 +43,16 @@ namespace KTPMUDMVVM.ViewModel
                 OnPropertyChangedEventHandler();
             }
         }
+        private int _Dichbenh { get; set; }
+        public int DichBenh
+        {
+            get => _Dichbenh;
+            set
+            {
+                _Dichbenh = value;
+                OnPropertyChangedEventHandler();
+            }
+        }
 
         private ObservableCollection<string> _TVlist;
         public ObservableCollection<string> TVlist
@@ -71,6 +81,7 @@ namespace KTPMUDMVVM.ViewModel
             CSCN = DataProvide.Ins.DB.CoSoChanNuois.Count();
             CSSX = DataProvide.Ins.DB.CoSoSanXuatSPs.Count();
             CSCB = DataProvide.Ins.DB.CoSoCheBiens.Count();
+            DichBenh = DataProvide.Ins.DB.Dichbenhs.Count();
 
             // Lưu dữ liệu cho các biểu đồ dòng
             CSCNValues = new ChartValues<int> { CSCN };

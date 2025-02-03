@@ -42,19 +42,6 @@ namespace KTPMUDMVVM.ViewModel
                 OnPropertyChangedEventHandler();
             }
         }
-
-        public string DiaChi
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(MaXa))
-                    return "Không có địa chỉ";
-                
-                Xa xa = DataProvide.Ins.DB.Xas.SingleOrDefault(x => x.MaXa == MaXa);
-                return xa.TenXa;
-            }
-        }
-
         private string _SoDT;
         public string SoDT
         {
@@ -65,7 +52,16 @@ namespace KTPMUDMVVM.ViewModel
                 OnPropertyChangedEventHandler();
             }
         }
-
+        private string _MaXa { get; set; }
+        public string MaXa
+        {
+            get => _MaXa;
+            set
+            { 
+                _MaXa = value;
+                OnPropertyChangedEventHandler();
+            }
+        }
         private DaiLyBanThuoc _SelectedItem;
         public DaiLyBanThuoc SelectedItem
         {
@@ -80,24 +76,15 @@ namespace KTPMUDMVVM.ViewModel
                     {
                         MaDL = SelectedItem.MaDL;
                         SoDT = SelectedItem.SoDT;
-                        MaXa = SelectedItem.MaXa;
+                        MaXa = SelectedItem.Xa.TenXa;
                         TenDL = SelectedItem.TenDL;
-                        
+                        OnPropertyChangedEventHandler();
                     }
                 }
             }
         }
 
-        private string _MaXa;
-        public string MaXa
-        {
-            get => _MaXa;
-            set
-            {
-
-                    _MaXa = value;
-            }
-        }
+        
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand SearchCommand { get; set; }
