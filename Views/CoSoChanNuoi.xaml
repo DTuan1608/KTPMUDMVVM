@@ -22,7 +22,7 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
                                 <Border x:Name="border" Background="{TemplateBinding Background}" Height="50" Width="80">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>    
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
@@ -66,8 +66,8 @@
                         </Grid>
                         <Grid Margin="0 20 0 0">
                             <TextBlock Text="Loại động vật:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
-                            <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                <TextBox Text="{Binding DongVat.LoaiDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                            <Border Width="250" Margin="10,0,10,0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
+                                <TextBox Text="{Binding Dongvat, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                     </StackPanel>
@@ -89,7 +89,7 @@
                         <Grid Margin="0 20 0 0">
                             <TextBlock Text="Số lượng:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                             <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                <TextBox Text="{Binding SoLuongDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                <TextBox Text="{Binding SoluongDV, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                             </Border>
                         </Grid>
                     </StackPanel>

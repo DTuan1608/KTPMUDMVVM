@@ -47,11 +47,7 @@
                             </liveCharts:Axis>
                         </liveCharts:CartesianChart.AxisY>
                         <liveCharts:CartesianChart.AxisX>
-                            <liveCharts:Axis Title="Số lượng các cơ sở" FontWeight="Bold" Foreground="White">
-                                <liveCharts:Axis.Labels>
-                                    <Binding Path="AxisLabels"/>
-                                </liveCharts:Axis.Labels>
-                            </liveCharts:Axis>
+                            <liveCharts:Axis Title="Số lượng các cơ sở" FontWeight="Bold" Foreground="White"/>
                         </liveCharts:CartesianChart.AxisX>
                     </liveCharts:CartesianChart>
 
@@ -68,24 +64,24 @@
                 <Grid Grid.Column="0">
                     <Border CornerRadius="20" Background="Blue" Margin="5">
                         <StackPanel Margin="5">
-                            <TextBlock Text="Số lượng cơ sở chăn nuôi:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 30 2 2" Foreground="White"/>
-                            <TextBlock Text="{Binding CSCN}" HorizontalAlignment="Center" FontSize="14" Foreground="White"/>
+                            <TextBlock Text="Số lượng cơ sở chăn nuôi:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 20 2 2" Foreground="White"/>
+                            <TextBlock Text="{Binding CSCN}" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White"/>
                         </StackPanel>
                     </Border>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Border CornerRadius="20" Background="Red" Margin="5">
                         <StackPanel Margin="5">
-                            <TextBlock Text="Số lượng cơ sở chế biến:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 30 2 2" Foreground="White"/>
-                            <TextBlock Text="{Binding CSCB}" HorizontalAlignment="Center" FontSize="14" Foreground="White"/>
+                            <TextBlock Text="Số lượng cơ sở chế biến:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 20 2 2" Foreground="White"/>
+                            <TextBlock Text="{Binding CSCB}" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White"/>
                         </StackPanel>
                     </Border>
                 </Grid>
                 <Grid Grid.Column="2">
                     <Border CornerRadius="20" Background="DarkGreen" Margin="5">
                         <StackPanel Margin="5">
-                            <TextBlock Text="Số lượng cơ sở sản xuất:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 30 2 2" Foreground="White"/>
-                            <TextBlock Text="{Binding CSSX}" HorizontalAlignment="Center" FontSize="14" Foreground="White"/>
+                            <TextBlock Text="Số lượng cơ sở sản xuất:" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Margin="2 20 2 2" Foreground="White"/>
+                            <TextBlock Text="{Binding CSSX}" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -123,8 +119,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Border CornerRadius="20" Background="AliceBlue">
-                    
+                <Border CornerRadius="20" Background="AliceBlue" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Số lượng dịch bênh hiện hành:" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 30 0 0" />
+                        <TextBlock  FontWeight="Bold"  HorizontalAlignment="Center" Text="{Binding DichBenh}" Margin="1 0 1 0" FontSize="20"/>
+
+                    </StackPanel>
                 </Border>
             </Grid>
             <Grid Grid.Row="1">

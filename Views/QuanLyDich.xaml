@@ -95,13 +95,13 @@
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Text="Mã dịch bệnh:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                                 <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                    <TextBox Text="{Binding MaCN, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                    <TextBox Text="{Binding MaDB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                                 </Border>
                             </Grid>
                             <Grid Margin="0 20 0 0">
                                 <TextBlock Text="Tên dịch bệnh:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                                 <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                    <TextBox Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                    <TextBox Text="{Binding TenDB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                                 </Border>
                             </Grid>
                         </StackPanel>
@@ -111,13 +111,13 @@
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Text="Mô tả dịch bệnh:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                                 <Border Width="350" Margin="40 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                    <TextBox Text="{Binding MaXa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                    <TextBox Text="{Binding MTDB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                                 </Border>
                             </Grid>
                             <Grid Margin="0 20 0 0">
                                 <TextBlock Text="Mức nguy hiểm:" FontSize="16" FontWeight="Bold" Margin="30 0 0 10"/>
                                 <Border Width="250" Margin="10 0 10 0" CornerRadius="20" Background="White"  BorderBrush="Black" BorderThickness="2">
-                                    <TextBox Text="{Binding SoDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
+                                    <TextBox Text="{Binding MDNH, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" BorderThickness="0"></TextBox>
                                 </Border>
                             </Grid>
                         </StackPanel>
@@ -126,25 +126,28 @@
                 <Grid Grid.Row="2">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Button Content="Thêm" Background="Green" 
-                             FontSize="16" VerticalAlignment="Center"
-                             HorizontalAlignment="Center"
-                             Margin="10 0 10 0" BorderThickness="0"
-                             Command="{Binding AddCommand}">
+        FontSize="16" VerticalAlignment="Center"
+        HorizontalAlignment="Center"
+        Margin="10 0 10 0" BorderThickness="0"
+        Command="{Binding AddCommand}">
                         </Button>
+
                         <Button Content="Sửa" Background="Green"
-                        FontSize="16" VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Command="{Binding EditCommand}"
-                        BorderThickness="0" 
-                        Margin="10 0 10 0"
-                        Foreground="Black">
+        FontSize="16" VerticalAlignment="Center"
+        HorizontalAlignment="Center"
+        Command="{Binding EditCommand}"
+        BorderThickness="0" 
+        Margin="10 0 10 0"
+        Foreground="Black">
                         </Button>
-                        <Button Content="Xóa"  Background="Red"
-                        FontSize="16" VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Command="{Binding DeleteCommand}"
-                        Margin="10 0 10 0" BorderThickness="0">
+
+                        <Button Content="Xóa" Background="Red"
+        FontSize="16" VerticalAlignment="Center"
+        HorizontalAlignment="Center"
+        Command="{Binding DeleteCommand}"
+        Margin="10 0 10 0" BorderThickness="0">
                         </Button>
+
                     </StackPanel>
                 </Grid>
             </Grid>

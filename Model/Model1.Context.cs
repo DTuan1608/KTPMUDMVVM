@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KyThuatPhanMemUngDungEntities : DbContext
+    public partial class DataEntities : DbContext
     {
-        public KyThuatPhanMemUngDungEntities()
-            : base("name=KyThuatPhanMemUngDungEntities")
+        public DataEntities()
+            : base("name=DataEntities")
         {
         }
     

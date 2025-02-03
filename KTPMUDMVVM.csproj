@@ -78,107 +78,107 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ChiCucThuY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoCapGCN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoChanNuoi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoCheBien.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoGietMo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoKhaoNghiemSP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CoSoSanXuatSP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CSCBmodel.cs" />
     <Compile Include="Model\CSCNmodel.cs" />
+    <Compile Include="Model\DaiLyBanThuoc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataProvide.cs" />
+    <Compile Include="Model\Dichbenh.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DieuKienChanNuoi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DongVat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GiayChungNhan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Huyen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhuTamGiu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoaiCoSo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nguoi_dung.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\PageMode.cs" />
     <Compile Include="Model\QLDBModel.cs" />
-    <Compile Include="ViewModel\ChiCucThuY.cs">
+    <Compile Include="Model\SanPhamXuLyChatThai.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoCapGCN.cs">
+    <Compile Include="Model\ThongKeChanNuoi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoChanNuoi.cs">
+    <Compile Include="Model\Thuoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoCheBien.cs">
+    <Compile Include="Model\Tinh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoGietMo.cs">
+    <Compile Include="Model\ToChucCaNhan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoKhaoNghiemSP.cs">
+    <Compile Include="Model\VungAnToan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CoSoSanXuatSP.cs">
+    <Compile Include="Model\Xa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CSCBViewModel.cs" />
     <Compile Include="ViewModel\CSCNviewmodel.cs" />
     <Compile Include="ViewModel\CSGMViewModel.cs" />
     <Compile Include="ViewModel\CSSXSPViewModel.cs" />
-    <Compile Include="ViewModel\DaiLyBanThuoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Dichbenh.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\DieuKienChanNuoi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\DLBTViewModel.cs" />
-    <Compile Include="ViewModel\DongVat.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\GiayChungNhan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\HomeVM.cs" />
     <Compile Include="ViewModel\HPViewModel.cs" />
-    <Compile Include="ViewModel\Huyen.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\KhuTamGiu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\LoaiCoSo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="ViewModel\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Nguoi_dung.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\QLDBViewModel.cs" />
     <Compile Include="ViewModel\QLDVViewModel.cs" />
-    <Compile Include="ViewModel\SanPhamXuLyChatThai.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\TCVViewModel.cs" />
     <Compile Include="ViewModel\TGTHViewModel.cs" />
-    <Compile Include="ViewModel\ThongKeChanNuoi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Thuoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Tinh.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\ToChucCaNhan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\VungAnToan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Xa.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\XLCTViewModel.cs" />
     <Compile Include="Views\CoSoChanNuoi.xaml.cs">
       <DependentUpon>CoSoChanNuoi.xaml</DependentUpon>
@@ -331,17 +331,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <EntityDeploy Include="ViewModel\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ViewModel\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -394,12 +394,12 @@
     <Resource Include="Image\BackgroundCSKN2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ViewModel\Model1.Context.tt">
+    <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ViewModel\Model1.tt">
+    <Content Include="Model\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>

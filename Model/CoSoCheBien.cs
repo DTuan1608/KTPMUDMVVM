@@ -7,14 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CoSoChanNuoi
+    public partial class CoSoCheBien
     {
-        public string MaCN { get; set; }
+        public string MaCB { get; set; }
         public string Ten { get; set; }
         public string MaDV { get; set; }
         public Nullable<int> SoLuongDV { get; set; }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KTPMUDMVVM.ViewModel
+namespace KTPMUDMVVM.Model
 {
     using System;
     using System.Collections.Generic;
